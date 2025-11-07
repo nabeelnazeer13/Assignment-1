@@ -50,6 +50,8 @@
                 font-size: 42px;
                 padding-left: 10px;
                 padding-top: 4rem;
+                margin-bottom: -5px;
+
                 width: auto;
             }         
         }
@@ -81,7 +83,7 @@
             opacity: 100;
             z-index: 3;
             display: flex;
-            animation: navfadeandscale .25s linear .25s 1 both;
+            animation: navfadeandscale .35s cubic-bezier(.53,.52,.04,1.06) 0s 1 both;
             justify-content: center;
             flex-direction: column;
             @include desktop { 
@@ -164,7 +166,7 @@
             display: flex;
             z-index: 2;
             background-color: rgb(255, 255, 255,.5);
-            animation: fade 1s linear 0s 1 both;                    
+            animation: fade .1s linear 0s 1 both;                    
             }
             @include desktop {
                 display: flex;
