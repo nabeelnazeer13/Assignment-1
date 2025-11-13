@@ -1,20 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..900;1,400..900&display=swap');
-
-
-html, body {
-    font-family: 'Roboto';
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-}
-
-img {
-    max-width: 100%;
-}
-
-* {
-    box-sizing: border-box;
-}
+@use '../lib/variables_mixins.scss' as *;
 
 
 .filters {
