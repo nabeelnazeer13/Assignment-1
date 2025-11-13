@@ -1,0 +1,56 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes navfadeandscale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.footer {
+  background-color: #011827;
+  color: #fff;
+  padding: 3rem 2rem;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 700px) {
+  .footer {
+    display: flex;
+    gap: 2rem;
+    padding: 3rem 7rem;
+    justify-content: space-between;
+  }
+}
+
+.footerSection {
+  margin: 0 0 3rem 0;
+  min-width: 10rem;
+}
+.footerSection a {
+  color: #fff;
+  text-decoration: none;
+}
+.footerSection__text {
+  margin: 0;
+  max-width: 40rem;
+}
+.footerSection__headline {
+  font-size: inherit;
+  margin: 0.5rem 0;
+}
+.footerSection__menu {
+  margin: 0;
+  padding: 0;
+}
+.footerSection__menuItem {
+  list-style-type: none;
+}/*# sourceMappingURL=footer.css.map */

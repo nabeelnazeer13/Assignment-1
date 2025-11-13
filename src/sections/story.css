@@ -1,0 +1,44 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes navfadeandscale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.story {
+  align-items: center;
+  background-color: #011827;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 8rem 3rem;
+}
+.story__text {
+  font-size: 1.8rem;
+  margin: 0;
+  max-width: 40rem;
+  text-align: center;
+}
+.story__button {
+  background-color: transparent;
+  border-radius: 0.4rem;
+  border-width: 0;
+  color: #8ACFE5;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0.8em 2.4em;
+  text-decoration: none;
+  border: 2px solid #8ACFE5;
+}/*# sourceMappingURL=story.css.map */

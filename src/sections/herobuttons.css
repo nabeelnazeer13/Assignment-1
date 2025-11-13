@@ -1,0 +1,58 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes navfadeandscale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.hero__buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 1rem 0 3rem;
+}
+@media screen and (min-width: 700px) {
+  .hero__buttons {
+    flex-direction: row-reverse;
+    margin-top: -2.5rem;
+  }
+}
+.hero__buttons__onsite {
+  background-color: #8ACFE5;
+  border-radius: 0.4rem;
+  border-width: 0;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0.8em 2.4em;
+  text-decoration: none;
+}
+.hero__buttons__online {
+  color: #011827;
+  font-weight: bold;
+}
+@media screen and (min-width: 700px) {
+  .hero__buttons__online {
+    background-color: #E3170A;
+    border-radius: 0.4rem;
+    border-width: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0.8em 2.4em;
+    text-decoration: none;
+  }
+}/*# sourceMappingURL=herobuttons.css.map */

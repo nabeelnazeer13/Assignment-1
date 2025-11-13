@@ -1,0 +1,89 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes navfadeandscale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.filters {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.filters__title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.filter {
+  margin-bottom: 2rem;
+}
+.filter__title {
+  font-size: 1rem;
+}
+
+.type__option {
+  padding-bottom: 0.5rem;
+}
+
+.rating__box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rating__stars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
+.rating .fa-star {
+  font-size: 1.2rem;
+  color: gray;
+}
+.rating .fa-star.checked {
+  color: orange;
+}
+.rating p {
+  padding: 0 1rem;
+}
+
+.tags .tag {
+  display: inline-block;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0rem 0.9rem;
+  line-height: 0.1rem;
+  margin: 0.15rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: white;
+  color: grey;
+  box-shadow: inset 0 0 0 2px grey;
+}
+.tags .tag.checked {
+  background-color: grey;
+  color: white;
+  box-shadow: none;
+}
+
+.search-bar input {
+  width: 20rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}/*# sourceMappingURL=filter.css.map */
