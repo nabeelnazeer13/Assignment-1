@@ -26,7 +26,6 @@
   }
 }
 .header__main {
-  padding-left: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -429,21 +428,20 @@
   flex: 1;
 }
 .allchallenges .challenges__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  max-width: 100%;
+  overflow-x: scroll;
   gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-  align-items: stretch;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .allchallenges .challenges__list {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    align-items: stretch;
   }
   .allchallenges .challenges__list__listItem {
     flex: 0 0 100%;
@@ -485,7 +483,7 @@
   flex-direction: column;
   margin: 1rem;
   min-width: 24rem;
-  max-width: 35rem;
+  max-width: 28rem;
   width: 100%;
   overflow: hidden;
 }
@@ -542,7 +540,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
 }
 .homepage .challenges__title {
   font-size: 2rem;
@@ -554,9 +551,8 @@
   max-width: 100%;
   overflow-x: scroll;
 }
-.homepage .challenges__list__listItem {
+.homepage .challenges__listItem {
   list-style-type: none;
-  display: flex;
 }
 .homepage .challenges__buttons {
   align-items: center;
@@ -569,6 +565,10 @@
   .homepage .challenges__buttons {
     flex-direction: row-reverse;
   }
+}
+.homepage .challenges__tags {
+  margin: 1rem 1rem;
+  font-size: 1.1rem;
 }
 .homepage .challenges__onsite {
   background-color: #8ACFE5;
@@ -601,7 +601,6 @@
   border-radius: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: stretch;
   flex-direction: column;
   margin: 1rem;
   max-width: 26rem;
@@ -624,6 +623,8 @@
   display: flex;
   gap: 0.5rem;
   padding: 0;
+  display: flex;
+  gap: 4px;
   color: #E3170A;
 }
 .homepage .challenge__details {
@@ -651,6 +652,10 @@
   align-self: flex-end;
   font-size: 1.2rem;
   margin: 0 1rem 1rem;
+}
+.homepage .challenge__tags {
+  margin: 1rem 1rem;
+  font-size: 1.1rem;
 }
 
 html, body {
