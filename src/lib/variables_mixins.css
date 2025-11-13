@@ -1,0 +1,18 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes navfadeandscale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=variables_mixins.css.map */
