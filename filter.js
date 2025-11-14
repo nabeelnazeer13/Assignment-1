@@ -30,7 +30,7 @@ const tagElement = document.querySelectorAll('.tag');
 
 function toggleTag(event) {
     const tagElement = event.currentTarget;
-    const tag = tagElement.textContent;
+    const tag = tagElement.textContent.toLowerCase(); //lowercase to be same as in API
     const index = selectedTags.indexOf(tag);
 
     if (index > -1) {
@@ -47,4 +47,3 @@ function toggleTag(event) {
 tagElement.forEach(x => {
 x.addEventListener('click', toggleTag);
 });
- 
