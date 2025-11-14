@@ -8,3 +8,6 @@ mobilemenu.addEventListener("click", () => {
 
 closemenu.addEventListener("click", () => {
     navmenu.classList.toggle('mobileactive'); });
+
+
+    const BASE_URL = 'https://lernia-sjj-assignments.vercel.app/api';
