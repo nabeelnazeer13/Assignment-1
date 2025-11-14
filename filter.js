@@ -47,3 +47,25 @@ function toggleTag(event) {
 tagElement.forEach(x => {
 x.addEventListener('click', toggleTag);
 });
+
+
+//test array for tags/labels
+const challenges = [
+    {
+        "id": 1,
+        "labels": ["web", "linux", "javascript"]
+    },
+    {
+        "id": 2,
+        "labels": ["web", "linux"]
+    }
+];
+
+//under construction
+// const findIdByTags = challenges.filter(c => 
+      //c.labels.some(label => selectedTags.includes(label)))
+      // .map(c => c.id);
+
+//console.log("ID by Tags: " + findIdByTags);
+
+
