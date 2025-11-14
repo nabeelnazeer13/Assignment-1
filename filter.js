@@ -1,22 +1,49 @@
+const onlineCheckbox = document.querySelector(".filter__online");
+const onsiteCheckbox = document.querySelector(".filter__on-site");
+
 const filterUserInput = document.querySelector(".filter__user-input");
 let allChallengesData = []; //Spara api-data
+let filterState = {
+    search: "",
+    online: false,
+    onSite: false,
+    tags: [],
+    minRating: 0,
+    maxRating: 5
+};
 
-function renderChallenges(challenges){
+onsiteCheckbox.addEventListener("change", () => {
+    filterState.onSite = onsiteCheckbox.checked;
+    applyFilters();
+});
+
+onlineCheckbox.addEventListener("change", () => {
+    filterState.online = onlineCheckbox.checked;
+    applyFilters();
+});
+
+
+filterUserInput.addEventListener("input", (e) => {
+    filterState.search = e.target.value.toLowerCase();
+    applyFilters();
+})
+
+function renderChallenges(challenges) {
     const list = document.getElementById('challengesList');
 
-    if(!list){
+    if (!list) {
         console.error("Could not find #challengesList in HTML");
         return;
     }
 
-    list.innerHTML ="";
+    list.innerHTML = "";
 
-    if(challenges.length===0){
+    if (challenges.length === 0) {
         list.innerHTML = '<li>Could not find matching challenges</li>';
         return;
     }
 
-    challenges.forEach(challenge =>{
+    challenges.forEach(challenge => {
         const li = document.createElement('li');
         li.classList.add("challenge");
 
@@ -27,6 +54,7 @@ function renderChallenges(challenges){
                 <h3 class="challenge__title">${challenge.title}</h3>
                 <p class ="challenge__description">${challenge.description}</p>
                 <p class ="challenge__rating">${challenge.rating}</p>
+                <p class="challenge__type">${challenge.type}</p>
              </div>
         </div> 
         `;
@@ -42,8 +70,6 @@ async function loadchallenges() {
         const data = await res.json();
 
         allChallengesData = data.challenges;
-
-        console.log('initial render test');
         renderChallenges(allChallengesData)
     } catch (err) {
         console.error('Error loading challenges', err);
@@ -51,21 +77,6 @@ async function loadchallenges() {
 }
 
 loadchallenges();
-
-
-let filterState = {
-    search: "",
-    online: false,
-    onSite: false,
-    tags: [],
-    minRating: 0,
-    maxRating: 5
-};
-
-filterUserInput.addEventListener("input", (e) => {
-    filterState.search = e.target.value.toLowerCase();
-    applyFilters();
-})
 
 function applyFilters() {
     let filtered = allChallengesData;
@@ -81,39 +92,15 @@ function applyFilters() {
         })
     };
 
+    if(filterState.online || filterState.onSite){
+        filtered = filtered.filter(challenge=>{
+            if(filterState.online && challenge.type === 'online') return true;
+            if(filterState.onSite && challenge.type ==='onsite') return true;
+            return false;
+        });
+    }
+
     renderChallenges(filtered);
 
     console.log('Search-filter:', filterState.search)
-}
-
-
-
-
-//toggle online/offline checkbox apperence
-function toggleCheckbox() {
-    var checkBox = document.getElementById("myCheck");
-    var text = document.getElementById("text");
-    if (checkBox.checked == true) {
-        text.style.display = "block";
-    } else {
-        text.style.display = "none";
-    }
-}
-
-//toogle tag state, added to selectedTags array if checked
-let selectedTags = [];
-
-function toggleTag(tagElement) {
-    const tag = tagElement.textContent.trim();
-    const index = selectedTags.indexOf(tag);
-
-    if (index > -1) {
-        selectedTags.splice(index, 1);
-        tagElement.classList.remove("checked"); s
-    } else {
-        selectedTags.push(tag);
-        tagElement.classList.add("checked");
-    }
-
-    console.log("Selected tags:", selectedTags);
 }
