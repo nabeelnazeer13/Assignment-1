@@ -2,7 +2,7 @@
 const selectedTypes = [];
 
 const onlineBox = document.querySelector('.online');
-const offlineBox = document.querySelector('.offline');
+const onsiteBox = document.querySelector('.onsite');
 
 function checkBox(event) {
     const value = event.target.value;
@@ -17,10 +17,10 @@ function checkBox(event) {
         selectedTypes.splice(index, 1);
       }
 
-    } console.log(selectedTypes) 
+    } console.log(selectedTypes);
 }
   onlineBox.addEventListener('change', checkBox);
-  offlineBox.addEventListener('change', checkBox);
+  onsiteBox.addEventListener('change', checkBox);
 
 
 //toogle tag state, added to selectedTags array if checked
@@ -47,3 +47,4 @@ function toggleTag(event) {
 tagElement.forEach(x => {
 x.addEventListener('click', toggleTag);
 });
+ 
