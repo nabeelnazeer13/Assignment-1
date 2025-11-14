@@ -24,15 +24,18 @@ function checkBox(event) {
 
 
 //toogle tag state, added to selectedTags array if checked
-let selectedTags = [];
+const selectedTags = [];
 
-function toggleTag(tagElement) {
-    const tag = tagElement.textContent.trim();
+const tagElement = document.querySelectorAll('.tag');
+
+function toggleTag(event) {
+    const tagElement = event.currentTarget;
+    const tag = tagElement.textContent;
     const index = selectedTags.indexOf(tag);
 
     if (index > -1) {
         selectedTags.splice(index, 1);
-        tagElement.classList.remove("checked");s
+        tagElement.classList.remove("checked");
     } else {
         selectedTags.push(tag);
         tagElement.classList.add("checked");
@@ -40,3 +43,7 @@ function toggleTag(tagElement) {
 
     console.log("Selected tags:", selectedTags);
 }
+//adds eventListener to all tags
+tagElement.forEach(x => {
+x.addEventListener('click', toggleTag);
+});
