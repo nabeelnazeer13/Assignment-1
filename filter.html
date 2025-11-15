@@ -18,12 +18,12 @@
 <div class="filter type">
   <h3 class="filter__title">By type</h3>  
   <div class = "type__option">
-  <input type="checkbox" id="checkbox" class="online" value="online"> 
+  <input type="checkbox" id="online" class="checkbox" value="online"> 
   <label for="online"></label> Include online challenges
 
   </div> 
     <div class="type__option"> 
-  <input type="checkbox" id="checkbox" class="onsite" value="onsite" >
+  <input type="checkbox" id="onsite" class="checkbox" value="onsite" >
  <label for="offline"></label> Include on-site challenges
     </div>
 </div>
@@ -34,7 +34,7 @@
 
     <div class = "rating__box">
 
-    <div class="rating__stars">
+    <div id="minRating" class="rating__stars">
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
@@ -44,7 +44,7 @@
 
     <p>to</p>
     
-    <div class="rating__stars">
+    <div id="maxRating" class="rating__stars">
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>

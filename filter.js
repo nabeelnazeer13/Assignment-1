@@ -1,8 +1,8 @@
 //adds online/on-site to array when selected using addEventlistener
 const selectedTypes = [];
 
-const onlineBox = document.querySelector('.online');
-const onsiteBox = document.querySelector('.onsite');
+const onlineBox = document.querySelector('#online');
+const onsiteBox = document.querySelector('#onsite');
 
 function checkBox(event) {
     const value = event.target.value;
@@ -31,6 +31,9 @@ const maxRating = 5; //defult max rating
 
 selectedRating <= maxRating
 selectedRating >= minRating
+
+
+
 
 //toogle tag state, added to selectedTags array if checked
 const selectedTags = [];
