@@ -26,12 +26,14 @@ function checkBox(event) {
 //adds rating to array
 const selectedRating = [];
 
-const minRating = 1; //defult min rating
-const maxRating = 5; //defult max rating
+//toogle star apperance on button press
+const stars = document.querySelectorAll(".rating__stars .fa-star");
 
-selectedRating <= maxRating
-selectedRating >= minRating
-
+stars.forEach(star => {
+    star.addEventListener("click", () => {
+        star.classList.toggle("checked");
+    });
+});
 
 
 
