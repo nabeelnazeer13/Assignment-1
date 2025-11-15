@@ -23,10 +23,11 @@
     grid-template-rows: auto;
     max-width: 100%;
     overflow-x: visible;
-
+    
 
     &Item {
       list-style-type: none;
+      
     }
   }
 
@@ -67,50 +68,48 @@
   max-width: 26rem;
   min-width: 24rem;
   overflow: hidden;
-  //max-height: 32rem;
+  position: absolut;
 
   &__title {
     //font-weight: normal;
     font-size: 1rem;
-    margin: 1rem 1rem 0.5rem;
-    width: 100%;
-  }
+      }
 
   &__subtitle {
     align-items: center;
-    display: flex;
+    //display: flex;
     gap:1rem;
     margin: 0 1rem;
   }
 
   &__rating {
-    display: flex;
+    //display: flex;
     gap: 0.5rem;
-    padding: 0;
-
-    
+    position: relative;
+    margin-top: -2rem;
+ 
   }
 
   &__details {
     padding: 0 10px;
-    display: flex;
+    //display: flex;
     justify-content: space-between;
   }
 
   &__rating {
-    display: flex;
+   //display: flex;
     gap:4px;
     color: $esc-red;
   }
 
   &__size {
-    font-size: 1.0rem;
-    padding-top: 3px;
+    font-size: 0.9rem;
+     
   }
 
   &__description {
     //font-size: 1.2rem;
-    font-size: 1.0rem;
+    font-size: 0.9rem;
     margin: 1rem 1rem;
   }
 

@@ -49,10 +49,11 @@ function createChallengeLi(ch) {
           <span class="challenge__rating__filledstar">${filledStars}</span>
           <span class="challenge__rating__emptystar">${emptyStars}</span>
         </div>
+        <h3 class="challenge__title">${title} ${typeText}</h3>
         <span class="challenge__size">${minParticipants}–${maxParticipants} participants</span>
       </div>
 
-      <h3 class="challenge__title">${title} ${typeText}</h3>
+      
       <p class="challenge__description">${description}</p>
 
       <!-- valfritt: visa etiketter om du har stil för dem -->
