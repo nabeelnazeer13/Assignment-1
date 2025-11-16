@@ -32,14 +32,14 @@ function renderChallenges(challenges) {
     const list = document.getElementById('challengesList');
 
     if (!list) {
-        console.error("Could not find #challengesList in HTML");
+        console.error('Could not find #challengesList in HTML');
         return;
     }
 
     list.innerHTML = "";
 
     if (challenges.length === 0) {
-        list.innerHTML = '<li>Could not find matching challenges</li>';
+        list.innerHTML = '<li>no matching challenges</li>';
         return;
     }
 
@@ -63,7 +63,6 @@ function renderChallenges(challenges) {
     });
 }
 
-
 async function loadchallenges() {
     try {
         const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
@@ -71,6 +70,7 @@ async function loadchallenges() {
 
         allChallengesData = data.challenges;
         renderChallenges(allChallengesData)
+
     } catch (err) {
         console.error('Error loading challenges', err);
     }
@@ -87,8 +87,7 @@ function applyFilters() {
             const description = challenge.description.toLowerCase();
 
             return (title.includes(filterState.search)) ||
-                description.includes(filterState.search
-                );
+                description.includes(filterState.search);
         })
     };
 
