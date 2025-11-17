@@ -10,16 +10,24 @@
     font-weight: normal;
   }
 
-  &__list {
+  /*&__list {
     padding: 0 1rem;
     display: flex;
     max-width: 100%;
-    overflow-x: scroll;
-    align-items: stretch;
+    overflow-x: scroll;*/
 
-    &__listItem {
+  &__list {
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    max-width: 100%;
+    overflow-x: visible;
+
+
+    &Item {
       list-style-type: none;
-      display: flex;
+
     }
   }
 
@@ -27,7 +35,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     margin: 2rem 0;
 
     @include desktop {
@@ -49,147 +57,110 @@
   }
 }
 
+
 .challenge {
   background-color: white;
+ // border-radius: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin: 1rem;
-  max-width: 28rem;
+  max-width: 26rem;
   min-width: 24rem;
   overflow: hidden;
-  scroll-snap-align: start;
-  
+  position: absolut;
 
   &__title {
-    font-weight: normal;
-    font-size: 1.8rem;
-    margin: 1rem 1rem 0.5rem;
-    width: 100%;
+    //font-weight: normal;
+    font-size: 1rem;
+    margin-top:1rem;
+    margin-left:0.4rem;
   }
 
   &__subtitle {
     align-items: center;
-    display: flex;
+    //display: flex;
     gap: 1rem;
-    margin: 0 1rem;
+    margin:1rem;
   }
 
-  &__imageWrapper{
-    position:relative;
-    width:100%;
-    height:auto;
+  &__size{
+    margin-left: 0.4rem;
   }
-  &__image{
-    display:block;
-    width:100%;
+
+
+  &__imageWrapper {
+    position: relative;
+    width: 100%;
     height: auto;
   }
 
   &__rating {
-    display: flex;
+    //display: flex;
     gap: 0.5rem;
-    padding: 0;
-    color: $esc-red;
-    position:absolute;
-    bottom:0.3rem;
-    left:0.5rem;
-    padding: 0.3rem 0.6rem;
-    z-index:2;
-    font-size: 30px;
-  }
+    position: relative;
+    margin-top: -2rem;
 
-  &__icon{
-    display: flex;
-    gap: 0.5rem;
-    padding: 0;
-    position:absolute;
-    top:0;
-    right:0.2rem;
-    padding: 0.3rem 0.6rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    height:60px;
-    width:60px;
-    z-index:2;
-    font-size: 30px;
-  }
-  &__icon svg{
-    margin-top:0.3rem;
-    height:40px;
-    width:40px;
   }
 
   &__details {
     padding: 0 10px;
-    display: flex;
+    //display: flex;
     justify-content: space-between;
   }
 
+  &__rating {
+    //display: flex;
+    gap: 4px;
+    color: $esc-red;
+  }
+
+  &__icon {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0.2rem;
+    padding: 0.3rem 0.6rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    z-index: 2;
+    font-size: 30px;
+  }
+
+  &__icon svg {
+    margin-top: 0.3rem;
+    height: 40px;
+    width: 40px;
+  }
+
   &__size {
-    font-size: 1.0rem;
-    padding-top: -5px;
-    margin:0 0.4rem;
+    font-size: 0.9rem;
+
   }
 
   &__description {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    margin: 1rem 1rem;
+  }
+
+  &__buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem 1rem;
+  }
+
+  &__labels{
     margin: 1rem 1rem;
   }
 
   &__bookbutton {
-    margin-top:auto;
-    align-self: flex-end;
-    font-size: 1.2rem;
-    margin: 0 1rem 1rem;
+    margin-top: auto;
+    font-size: 0.9rem;
     @include button($esc-red, $esc-textlight);
-
-    width:auto; //hindrar från att fylla hela bredden
-    max-width: 20rem; 
-    white-space: nowrap; //hindrar från radbrytning
-    padding: 0.5rem 1rem; //höjd
-  }
-
-  &__tags{
-    margin: 1rem 1rem;
-    font-size: 1.1rem;
-  }
-}
-
-//SIDSPECIFIK LAYOUT HOMEPAGE
-.homepage .challenges__list{
-  display:flex;
-  flex-wrap: nowrap;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  gap: 1rem;
-  padding:1rem;
-
-    .challenges__listItem{
-      flex:0 0 33.33%;
-      scroll-snap-align: start;
-      display:flex;
-    }
-    @media (max-width: 768px){
-      .challenges__listItem{
-        flex:0 0 100%; //visar ett kort i taget 
-      }
-    }
-}
-
-//SIDSPECIFIK LAYOUT ALL-CHALLENGES
-.allchallenges .challenges__list{
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:1rem;
-  padding:1rem;
-
-  @media (max-width: 768px){
-    grid-template-columns: 1fr;
-  }
-  
-  .challenges__listItem{
-    display:flex;
+    max-width: 20rem;
+      width:auto; //hindrar från att fylla hela bredden
+      padding: 0.5rem 1rem; //höjd
   }
 }
