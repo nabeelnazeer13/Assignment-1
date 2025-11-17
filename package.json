@@ -21,5 +21,8 @@
     "sass:build": "sass src/main.scss main.css",
     "sass:watch": "sass --watch src/main.scss main.css",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "sass": "^1.94.0"
   }
 }
