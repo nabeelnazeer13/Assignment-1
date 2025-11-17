@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,75 +9,92 @@
     <link rel="icon" type="image/x-icon" href="https://lh3.googleusercontent.com/d/1k5h2AX1nipjcw5oalkAmBJpc3xOodBbB">
     <title>Hacker Escape Room</title>
 </head>
+
 <body>
     <header class="header">
         <div class="header__main">
-            <img class = "header__mainlogo" src="images/logo.png" alt="hacker escaperoom logo">
+            <img class="header__mainlogo" src="images/logo.png" alt="hacker escaperoom logo">
             <h1 class="header__maintitle">Hacker Escape Room</h1>
             <button class="header__mainmobilenavmenu">☰</button>
         </div>
         <div class="header__navcontainer">
-        <nav class="header__navcontainernav">
-            <button class="header__navcontainernavclose">&#10006;</button>
-            <ul class="header__navcontainernavlist">
-                <li class="header__navcontainernavItem">
-                    <a href="#">Play Online</a>
-                </li>
-                <li class="header__navcontainernavItem">
-                    <a href="#">Play on-site</a>
-                </li>
-                <li class="header__navcontainernavItem">
-                    <a href="#">The story</a>
-                </li>
-                <li class="header__navcontainernavItem">
-                    <a href="#">Contact us</a>
-                </li>
-            </ul>
-        </nav> 
+            <nav class="header__navcontainernav">
+                <button class="header__navcontainernavclose">&#10006;</button>
+                <ul class="header__navcontainernavlist">
+                    <li class="header__navcontainernavItem">
+                        <a href="#">Play Online</a>
+                    </li>
+                    <li class="header__navcontainernavItem">
+                        <a href="#">Play on-site</a>
+                    </li>
+                    <li class="header__navcontainernavItem">
+                        <a href="#">The story</a>
+                    </li>
+                    <li class="header__navcontainernavItem">
+                        <a href="#">Contact us</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        
+
     </header>
     <main>
-    <section class="hero">
-            <img class="hero__image" src="https://lh3.googleusercontent.com/d/1ceHZD2pfe48LvIImLvBCyjKyGulPAvso" alt="hacker sitting in front of computer with multiple monitors"> 
-    </section>
-    <section class="hero__buttons">
+        <section class="hero">
+            <img class="hero__image" src="https://lh3.googleusercontent.com/d/1ceHZD2pfe48LvIImLvBCyjKyGulPAvso"
+                alt="hacker sitting in front of computer with multiple monitors">
+        </section>
+        <section class="hero__buttons">
             <a class="hero__buttons__onsite" href="#">On-site challenges</a>
-            <a class="hero__buttons__online" href="#">Online Challenges</a> 
-    </section>
-    <section class="testimonials">
-        <ul class="testimonials__list">
-            <li class="testimonials__listItem">
-                <figure class="testimonial">
-                    <img class="testimonial__image" src="images/customer.png">
-                    <blockquote class="testimonial__quote">
-                    This is a quote about how amazing this place is and how much fun
-                    me
-                    and my friends had when we tried it.
-                    </blockquote>
-                    <figcaption class="testimonial__quote__date">
-                    John Doe, visited us in September 2021
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="testimonials__listItem">
-                <figure class="testimonial">
-                    <img class="testimonial__image" src="images/customer.png">
-                    <blockquote class="testimonial__quote">
-                    This is a quote about how amazing this place is and how much fun
-                    me
-                    and my friends had when we tried it.
-                    </blockquote>
-                    <figcaption class="testimonial__quote__date">
-                    John Doe, visited us in September 2021
-                    </figcaption>
-                </figure>
-            </li>
-        </ul>
-    </section>
-    <section class="challenges">
-        <h2 class="challenges__title">Popular challenges right now</h2>
-        <ul class="challenges__list">
+            <a class="hero__buttons__online" href="#">Online Challenges</a>
+        </section>
+        <section class="testimonials">
+            <ul class="testimonials__list">
+                <li class="testimonials__listItem">
+                    <figure class="testimonial">
+                        <img class="testimonial__image" src="images/customer.png">
+                        <blockquote class="testimonial__quote">
+                            This is a quote about how amazing this place is and how much fun
+                            me
+                            and my friends had when we tried it.
+                        </blockquote>
+                        <figcaption class="testimonial__quote__date">
+                            John Doe, visited us in September 2021
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="testimonials__listItem">
+                    <figure class="testimonial">
+                        <img class="testimonial__image" src="images/customer.png">
+                        <blockquote class="testimonial__quote">
+                            This is a quote about how amazing this place is and how much fun
+                            me
+                            and my friends had when we tried it.
+                        </blockquote>
+                        <figcaption class="testimonial__quote__date">
+                            John Doe, visited us in September 2021
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+
+        <section class="challenges">
+            <!--<h2 class="challenges__title">Popular challenges right now</h2> -->
+
+            <h2 class="challenges__title">
+                <a href="all.html">Popular challenges right now </a>
+            </h2>
+
+            <p id="main-status" class="status"></p>
+            <!-- JS fyller denna lista med TOPP 3 -->
+            <ul id="main-list" class="challenges__list"></ul>
+             <!-- <li class="challenges__listItem"></li>  -->
+
+            <div class="challenges__buttons">
+                <a class="challenges__onsite" href="#">On-site Challenges</a>
+                <a class="challenges__online" href="#">Online challenges</a>
+            </div>
+            <!--<ul class="challenges__list">
             <li class="challenges__listItem">
                 <article class="challenge">
                     <img src="https://lh3.googleusercontent.com/d/1Epbt4rLl_BIINRA3xdLfVbTJ9pn1kfIK" alt="hacker sitting in front of compuer with multiple monitors" class ="challenge__image">
@@ -126,59 +144,65 @@
         <div class="challenges__buttons">
             <a class="challenges__onsite" href="#">On-site Challenges</a>
             <a class="challenges__online" href="#">Online challenges</a>
-        </div>  
-    </section>
-    <section class="story">
-        <p class="story__text">Quodsi haberent magnalia inter potentiam et divitias, et non illam quidem haec eo spectant haec quoque vos omnino desit illud quo solo felicitatis libertatisque perficiuntur.</p>
-        <a class="story__button" href="#">Read the full story</a>
-    </section>
-    <section class="services">
-        <article class="service">
-            <img src="https://lh3.googleusercontent.com/d/1wJOOKm_lgTKB3a4NxBbkXjLfCNpqK6Rh" alt="two people discussing while working together on a computer" class ="service__image">
-            <div class="service__content">
-            <h2 class="service__title">Play with your friends or build your team stronger at work</h2>
-            <p class="service__description">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-            <a class="service__link" href="#">Book on site today</a>
-            </div>        
-        </article>
-        <article class="service">
-            <img src="https://lh3.googleusercontent.com/d/1dJBj733h7KPRMZWKVJBTeXIYb7Sq-vEV" alt="a woman sits in front of the computer working" class ="service__image">
-            <div class="service__content">
-            <h2 class="service__title">Play with your friends or build your team stronger at work</h2>
-            <p class="service__description">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-            <a class="service__link" href="#">Book on site today</a>
-            </div>        
-        </article>
-    </section>
+        </div>  -->
+        </section>
+        <section class="story">
+            <p class="story__text">Quodsi haberent magnalia inter potentiam et divitias, et non illam quidem haec eo
+                spectant haec quoque vos omnino desit illud quo solo felicitatis libertatisque perficiuntur.</p>
+            <a class="story__button" href="#">Read the full story</a>
+        </section>
+        <section class="services">
+            <article class="service">
+                <img src="https://lh3.googleusercontent.com/d/1wJOOKm_lgTKB3a4NxBbkXjLfCNpqK6Rh"
+                    alt="two people discussing while working together on a computer" class="service__image">
+                <div class="service__content">
+                    <h2 class="service__title">Play with your friends or build your team stronger at work</h2>
+                    <p class="service__description">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+                        nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
+                    <a class="service__link" href="#">Book on site today</a>
+                </div>
+            </article>
+            <article class="service">
+                <img src="https://lh3.googleusercontent.com/d/1dJBj733h7KPRMZWKVJBTeXIYb7Sq-vEV"
+                    alt="a woman sits in front of the computer working" class="service__image">
+                <div class="service__content">
+                    <h2 class="service__title">Play with your friends or build your team stronger at work</h2>
+                    <p class="service__description">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+                        nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
+                    <a class="service__link" href="#">Book on site today</a>
+                </div>
+            </article>
+        </section>
     </main>
     <footer class="footer">
-    <div class="footer__summary footerSection">
-      <h2 class="footerSection__headline">[Esc] Hacker Escape rooms</h2>
-      <p class="footerSection__text">
-        Quodsi haberent magnalia inter potentiam et divitias, et non illam
-        quidem haec eo spectant haec quoque vos omnino desit illud quo solo
-        felicitatis libertatisque perficiuntur.
-      </p>
-    </div>
-    <div class="footer__sitemap footerSection">
-      <h2 class="footerSection__headline">Site map</h2>
-      <menu class="footerSection__menu">
-        <li class="footerSection__menuItem"><a href="#">The Story</a></li>
-        <li class="footerSection__menuItem"><a href="#">Contact Us</a></li>
-        <li class="footerSection__menuItem"><a href="#">Legal</a></li>
-        <li class="footerSection__menuItem"><a href="#">Play online</a></li>
-        <li class="footerSection__menuItem"><a href="#">Play on-site</a></li>
-      </menu>
-    </div>
-    <div class="footer__socials footerSection">
-      <h2 class="footerSection__headline">Follow us on</h2>
-      <menu class="footerSection__menu">
-        <li class="footerSection__menuItem"><a href="#">Facebook</a></li>
-        <li class="footerSection__menuItem"><a href="#">Instagram</a></li>
-        <li class="footerSection__menuItem"><a href="#">Twitter</a></li>
-      </menu>
-    </div>
-  </footer>
-  <script src="main.js"></script>
+        <div class="footer__summary footerSection">
+            <h2 class="footerSection__headline">[Esc] Hacker Escape rooms</h2>
+            <p class="footerSection__text">
+                Quodsi haberent magnalia inter potentiam et divitias, et non illam
+                quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+                felicitatis libertatisque perficiuntur.
+            </p>
+        </div>
+        <div class="footer__sitemap footerSection">
+            <h2 class="footerSection__headline">Site map</h2>
+            <menu class="footerSection__menu">
+                <li class="footerSection__menuItem"><a href="#">The Story</a></li>
+                <li class="footerSection__menuItem"><a href="#">Contact Us</a></li>
+                <li class="footerSection__menuItem"><a href="#">Legal</a></li>
+                <li class="footerSection__menuItem"><a href="#">Play online</a></li>
+                <li class="footerSection__menuItem"><a href="#">Play on-site</a></li>
+            </menu>
+        </div>
+        <div class="footer__socials footerSection">
+            <h2 class="footerSection__headline">Follow us on</h2>
+            <menu class="footerSection__menu">
+                <li class="footerSection__menuItem"><a href="#">Facebook</a></li>
+                <li class="footerSection__menuItem"><a href="#">Instagram</a></li>
+                <li class="footerSection__menuItem"><a href="#">Twitter</a></li>
+            </menu>
+        </div>
+    </footer>
+    <script src="main.js"></script> 
 </body>
+
 </html>
