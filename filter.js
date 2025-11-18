@@ -92,6 +92,7 @@ function renderChallenges(challenges) {
                 <p class ="challenge__description">${challenge.description}</p>
                 <p class ="challenge__rating">${challenge.rating}</p>
                 <p class="challenge__type">${challenge.type}</p>
+                <p class ="challenge__label">${challenge.labels}</p>
              </div>
         </div> 
         `;
@@ -156,7 +157,6 @@ function applyFilters() {
             );
         });
     }
-
 
     renderChallenges(filtered);
 
