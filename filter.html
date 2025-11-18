@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="src/main.css">
+     <script src="filter.js" defer></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Filter function</title>
+</head>
+<body>
+    
+<section class = "filters">
+<h2 class="filters__title"> Filter challenges</h2>
+
+<div class = "filter__row">
+
+<div class="filter type">
+  <h3 class="filter__title">By type</h3>  
+  <div class = "type__option">
+  <input type="checkbox" id="online" class="checkbox" value="online"> 
+  <label for="online"></label> Include online challenges
+
+  </div> 
+    <div class="type__option"> 
+  <input type="checkbox" id="onsite" class="checkbox" value="onsite" >
+ <label for="offline"></label> Include on-site challenges
+    </div>
+</div>
+
+
+<div class="filter rating">
+    <h3 class="filter__title">By rating</h3>
+
+    <div class = "rating__box">
+
+    <div id="minRating" class="rating__stars">
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+   </div>
+
+    <p>to</p>
+    
+    <div id="maxRating" class="rating__stars">
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    </div>
+</div>
+</div>
+
+
+<div class="filter tags">
+    <h3 class="filter__title">By tags</h3>
+    
+    <div class = "tag"> <p>Web</p> </div>
+    <div class = "tag"> <p>Linux</p> </div>
+    <div class = "tag"> <p>Javascript</p> </div>
+    
+
+</div>
+
+<div class ="filter__row">
+
+<div class="filter search-bar">
+    <h3 class="filter__title">Or type to search for a keyword</h3>
+    <input type="text" placeholder="Start typing to filter..." > 
+</div>
+</div>
+</section>
+</body>
+</html>

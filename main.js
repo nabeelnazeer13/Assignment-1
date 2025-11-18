@@ -3,11 +3,11 @@ const navmenu = document.querySelector('.header__navcontainer')
 const closemenu = document.querySelector('.header__navcontainernavclose')
 
 
-//mobilemenu.addEventListener("click", () => {
-//navmenu.classList.toggle('mobileactive'); });
+mobilemenu.addEventListener("click", () => {
+navmenu.classList.toggle('mobileactive'); });
 
-//closemenu.addEventListener("click", () => {
-//navmenu.classList.toggle('mobileactive'); });
+closemenu.addEventListener("click", () => {
+navmenu.classList.toggle('mobileactive'); });
 
 
 //Funktion to download api, is provided in task 4 Specifikation ==> API: https://lernia-sjj-assignments.vercel.app/
@@ -110,7 +110,7 @@ async function initAll() {
 
         const all = await getChallenges();
         const sorted = [...all].sort(
-            (a, b) => (b.rating ?? 0) - (a.rating ?? 0)).slice(0, 10);
+            (a, b) => (b.rating ?? 0) - (a.rating ?? 0)).slice(0, 15);
 
         listElAll.innerHTML = '';
         sorted.forEach(ch => {

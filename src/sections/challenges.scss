@@ -10,19 +10,13 @@
     font-weight: normal;
   }
 
-  /*&__list {
-    padding: 0 1rem;
-    display: flex;
-    max-width: 100%;
-    overflow-x: scroll;*/
-
  &__list {
     padding: 0 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     max-width: 100%;
-    overflow-x: visible;
+    overflow-x: scroll;
 
 
     &Item {
@@ -60,7 +54,6 @@
 
 .challenge {
   background-color: white;
- // border-radius: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
