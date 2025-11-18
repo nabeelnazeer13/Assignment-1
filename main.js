@@ -4,10 +4,12 @@ const closemenu = document.querySelector('.header__navcontainernavclose')
 
 
 mobilemenu.addEventListener("click", () => {
-navmenu.classList.toggle('mobileactive'); });
+    navmenu.classList.toggle('mobileactive');
+});
 
 closemenu.addEventListener("click", () => {
-navmenu.classList.toggle('mobileactive'); });
+    navmenu.classList.toggle('mobileactive');
+});
 
 
 //Funktion to download api, is provided in task 4 Specifikation ==> API: https://lernia-sjj-assignments.vercel.app/
@@ -130,4 +132,22 @@ if (listElMain && statusElMain) {
 
 if (listElAll && statusElAll) {
     initAll();
+}
+
+
+//Filter function open and close
+function openFilter() {
+    const contentDiv = document.querySelector("#loadFilter");
+    const openBtn = document.querySelector(".filterBtn");
+
+    contentDiv.style.display = 'block';
+    openBtn.style.display = 'none';
+}
+
+function closeFilter() {
+    const contentDiv = document.querySelector("#loadFilter");
+    const openBtn = document.querySelector(".filterBtn");
+
+    contentDiv.style.display = 'none';
+    openBtn.style.display = 'block';
 }
