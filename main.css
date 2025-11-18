@@ -572,7 +572,8 @@
 }
 
 .filters {
-  display: flex;
+  display: none;
+  position: relative;
   flex-direction: column;
   padding: 2rem;
 }
@@ -641,6 +642,22 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.filterBtn {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.filter__close {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  font-size: 2rem;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  z-index: 999;
 }
 
 html, body {
