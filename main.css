@@ -623,12 +623,18 @@
   flex-direction: row;
   align-items: center;
   gap: 0.25rem;
+  direction: rtl;
+  cursor: pointer;
 }
 .rating .fa-star {
   font-size: 1.2rem;
   color: gray;
 }
 .rating .fa-star.checked {
+  color: orange;
+}
+.rating .fa-star:hover,
+.rating .fa-star:hover ~ .fa-star {
   color: orange;
 }
 .rating p {

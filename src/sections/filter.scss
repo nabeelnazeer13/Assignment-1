@@ -67,7 +67,8 @@
         flex-direction: row;
         align-items: center;
         gap: 0.25rem;
-        
+                direction: rtl; //för att få stjärnorna till vänster lyser upp
+                cursor: pointer;
     }
 
     .fa-star {
@@ -79,10 +80,17 @@
         color: orange;
     }
 
+        .fa-star:hover,
+    .fa-star:hover ~ .fa-star {
+    color: orange;
+  }
+
     p {
         padding: 0 1rem;
         
     }
+
+
 }
 
 .tags {
