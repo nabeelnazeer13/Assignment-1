@@ -579,9 +579,8 @@
 }
 @media screen and (min-width: 700px) {
   .filters {
-    width: 60%;
+    width: 80%;
     border: 1px solid rgb(216, 216, 216);
-    width: 60%;
   }
 }
 .filters__title {
