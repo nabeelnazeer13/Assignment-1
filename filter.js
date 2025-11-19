@@ -1,3 +1,6 @@
+
+//insert actuall API here
+
 //adds online/on-site to array when selected using addEventlistener
 const selectedTypes = [];
 
@@ -22,6 +25,7 @@ function checkBox(event) {
   //eventListeners for both checkboxes
   onlineBox.addEventListener('change', checkBox);
   onsiteBox.addEventListener('change', checkBox);
+
 
 
 //toggle star button press + calculate amount of stars
@@ -97,7 +101,7 @@ const findIdByTags = ch.filter(c => //filter though each challange
       c.labels.some(label => selectedTags.includes(label))) //find any labels that match tag
        .map(c => c.id); //get only id number
 
-console.log("ID by Tags: ", findIdByTags);
+console.log("Id by Tags: ", findIdByTags);
 }
 
 //adds eventListener to all tags
