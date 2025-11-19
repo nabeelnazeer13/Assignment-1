@@ -8,11 +8,11 @@
     position: relative;
 
     @include desktop {
-        
+
         width: 80%;
         border: 1px solid rgb(216, 216, 216);
-        
-        
+
+
     }
 
     &__title {
@@ -20,7 +20,7 @@
         font-weight: 400;
         margin-bottom: 1rem;
 
-        
+
     }
 }
 
@@ -59,7 +59,7 @@
         flex-direction: row;
         align-items: center;
         gap: 0.5rem;
-        
+
     }
 
     &__stars {
@@ -67,8 +67,8 @@
         flex-direction: row;
         align-items: center;
         gap: 0.25rem;
-                direction: rtl; //för att få stjärnorna till vänster lyser upp
-                cursor: pointer;
+        direction: rtl; //för att få stjärnorna till vänster lyser upp
+        cursor: pointer;
     }
 
     .fa-star {
@@ -80,14 +80,14 @@
         color: orange;
     }
 
-        .fa-star:hover,
-    .fa-star:hover ~ .fa-star {
-    color: orange;
-  }
+    .fa-star:hover,
+    .fa-star:hover~.fa-star {
+        color: orange;
+    }
 
     p {
         padding: 0 1rem;
-        
+
     }
 
 
@@ -98,7 +98,7 @@
     @include desktop {
         float: left;
         width: 33.33%;
-        
+
     }
 
     .tag {
@@ -151,13 +151,13 @@
     margin-bottom: 3rem;
 }
 
-.filters__close{
-  position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
-  font-size: 2rem;
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-  z-index: 999;      
+.filters__close {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    font-size: 2rem;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+    z-index: 999;
 }
