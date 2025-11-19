@@ -79,6 +79,10 @@ function createChallengeLi(ch) {
       </div>
     </article>
   `;
+
+  const button = li.querySelector('.challenge__bookbutton');
+  button.addEventListener('click', () => {
+    openBookingModal(ch)}); // din modal-funktion
     return li;
 }
 
@@ -151,3 +155,19 @@ function closeFilter() {
     contentDiv.style.display = 'none';
     openBtn.style.display = 'block';
 }
+
+
+//MODAL
+
+function openBookingModal(){
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('arial-modal', 'true');
+
+    modal.innerHTML = `
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+        <h2> Booking </h2>
+        <`
+    }
