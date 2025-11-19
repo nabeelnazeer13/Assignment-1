@@ -572,9 +572,16 @@
 }
 
 .filters {
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 2rem;
+  position: relative;
+}
+@media screen and (min-width: 700px) {
+  .filters {
+    width: 80%;
+    border: 1px solid rgb(216, 216, 216);
+  }
 }
 .filters__title {
   font-size: 1.4rem;
@@ -585,6 +592,12 @@
 .filter {
   margin-bottom: 2rem;
 }
+@media screen and (min-width: 700px) {
+  .filter {
+    float: left;
+    width: 33.33%;
+  }
+}
 .filter__title {
   font-size: 1rem;
 }
@@ -593,6 +606,12 @@
   padding-bottom: 0.5rem;
 }
 
+@media screen and (min-width: 700px) {
+  .rating {
+    float: left;
+    width: 33.33%;
+  }
+}
 .rating__box {
   display: flex;
   flex-direction: row;
@@ -604,6 +623,8 @@
   flex-direction: row;
   align-items: center;
   gap: 0.25rem;
+  direction: rtl;
+  cursor: pointer;
 }
 .rating .fa-star {
   font-size: 1.2rem;
@@ -612,10 +633,20 @@
 .rating .fa-star.checked {
   color: orange;
 }
+.rating .fa-star:hover,
+.rating .fa-star:hover ~ .fa-star {
+  color: orange;
+}
 .rating p {
   padding: 0 1rem;
 }
 
+@media screen and (min-width: 700px) {
+  .tags {
+    float: left;
+    width: 33.33%;
+  }
+}
 .tags .tag {
   display: inline-block;
   font-weight: 600;
@@ -641,6 +672,32 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+@media screen and (min-width: 700px) {
+  .search-bar input {
+    width: 20rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  .search-bar {
+    width: 30rem;
+  }
+}
+
+.filterBtn {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.filters__close {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  font-size: 2rem;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  z-index: 999;
 }
 
 html, body {
