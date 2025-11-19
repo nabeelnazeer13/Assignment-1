@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="/booking/booking.css" />
+  </head>
+  <body class="booking-page">
+    <div class="booking-overlay"></div>
+
+    <div class="booking-modal">
+      <section class="booking-step booking-step-active " id="booking-step-1">
+        <h1 class="booking-title">
+          Book room "<span id="booking-room-title-step1"></span>"
+          (step 1)
+        </h1>
+
+        <p class="booking-text">What date would you like to come?</p>
+
+        <label class="booking-label">
+          Date
+          <input
+            type="date"
+            class="booking-input"
+            id="booking-date-input"
+            name="date"
+          />
+        </label>
+
+        <div class="booking-buttons">
+          <button
+            type="button"
+            class="booking-btn booking-btn-primary"
+            id="booking-step1-next"
+          >
+            Search available times
+          </button>
+        </div>
+
+        <p class="booking-error" id="booking-step1-error"></p>
+      </section>
+
+      <section class="booking-step " id="booking-step-2">
+        <h1 class="booking-title">
+          Book room "<span id="booking-room-title-step2"></span>"
+          (step 2)
+        </h1>
+
+        <div class="booking-group">
+          <label class="booking-label">
+            Name
+            <input
+              type="text"
+              class="booking-input"
+              id="booking-name-input"
+              name="name"
+            />
+          </label>
+
+          <label class="booking-label">
+            E-mail
+            <input
+              type="email"
+              class="booking-input"
+              id="booking-email-input"
+              name="email"
+            />
+          </label>
+        </div>
+
+        <div class="booking-group booking-group-row">
+          <label class="booking-label booking-label-half">
+            What time?
+            <select
+              class="booking-input"
+              id="booking-time-select"
+              name="time"
+            >
+             
+            </select>
+          </label>
+
+          <label class="booking-label booking-label-half">
+            How many participants?
+            <select
+              class="booking-input"
+              id="booking-participants-select"
+              name="participants"
+            >
+              
+            </select>
+          </label>
+        </div>
+
+        <div class="booking-buttons booking-buttons-between">
+          <button
+            type="button"
+            class="booking-btn booking-btn-secondary"
+            id="booking-step2-back"
+          >
+            Back
+          </button>
+
+          <button
+            type="button"
+            class="booking-btn booking-btn-primary"
+            id="booking-step2-next"
+          >
+            Submit booking
+          </button>
+        </div>
+
+        <p class="booking-error" id="booking-step2-error"></p>
+      </section>
+
+      <section class="booking-step " id="booking-step-3">
+        <h1 class="booking-title">Thank you!</h1>
+
+        <p class="booking-text">
+          Your booking request has been sent. You will receive a confirmation
+          by Email.
+        </p>
+
+        <button
+          type="button"
+          class="booking-btn booking-btn-primary"
+          id="booking-close"
+        >
+          Back to challenges
+        </button>
+      </section>
+    </div>
+    <script src="/booking/booking.js" type="module"></script>
+  </body>
+</html>
