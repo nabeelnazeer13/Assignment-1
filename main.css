@@ -556,7 +556,7 @@
   margin: 1rem 1rem;
 }
 .challenge__bookbutton {
-  margin-top: auto;
+  margin-top: 3rem;
   font-size: 0.9rem;
   background-color: #E3170A;
   border-radius: 0.4rem;
@@ -569,6 +569,7 @@
   max-width: 20rem;
   width: auto;
   padding: 0.5rem 1rem;
+  white-space: nowrap;
 }
 
 .filters {

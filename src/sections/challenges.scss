@@ -10,7 +10,7 @@
     font-weight: normal;
   }
 
- &__list {
+  &__list {
     padding: 0 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -66,18 +66,18 @@
   &__title {
     //font-weight: normal;
     font-size: 1rem;
-    margin-top:1rem;
-    margin-left:0.4rem;
+    margin-top: 1rem;
+    margin-left: 0.4rem;
   }
 
   &__subtitle {
     align-items: center;
     //display: flex;
     gap: 1rem;
-    margin:1rem;
+    margin: 1rem;
   }
 
-  &__size{
+  &__size {
     margin-left: 0.4rem;
   }
 
@@ -144,17 +144,18 @@
     padding: 0 1rem 1rem;
   }
 
-  &__labels{
+  &__labels {
     margin: 1rem 1rem;
   }
 
   &__bookbutton {
-    margin-top: auto;
+    margin-top: 3rem;
     font-size: 0.9rem;
+    
     @include button($esc-red, $esc-textlight);
     max-width: 20rem;
-      width:auto; //hindrar från att fylla hela bredden
-      padding: 0.5rem 1rem; //höjd
+    width: auto; //hindrar från att fylla hela bredden
+    padding: 0.5rem 1rem; //höjd
+    white-space: nowrap;
   }
 }
-
