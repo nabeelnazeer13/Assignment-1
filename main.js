@@ -79,6 +79,11 @@ function createChallengeLi(ch) {
       </div>
     </article>
   `;
+
+    const button = li.querySelector('.challenge__bookbutton');
+    button.addEventListener('click', () => {
+        loadBookingModal(ch); // öppnar modal med challenge-data
+    });
     return li;
 }
 
@@ -134,20 +139,51 @@ if (listElAll && statusElAll) {
     initAll();
 }
 
+//FILTER
+async function loadFilterChallenges() {
+    const res = await fetch('/filter.html');
+    const html = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const filterSection = doc.querySelector('.filters');
+    if (!filterSection) {
+        console.error("Ingen .filters hittades i filter.html");
+        return;
+    }
+    const filterBtnChallenges = document.querySelector('.filter__challenges');
+    const challengeList = document.querySelector('#all-list');// lägg till i all.html
 
-//Filter function open and close
-function openFilter() {
-    const contentDiv = document.querySelector("#loadFilter");
-    const openBtn = document.querySelector(".filterBtn");
 
-    contentDiv.style.display = 'block';
-    openBtn.style.display = 'none';
+    challengeList.parentNode.insertBefore(filterSection, challengeList);
+    filterSection.classList.add('is-visible');
+
+    const closeBtn = filterSection.querySelector('.filters__close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => filterSection.remove());
+    }
+
 }
 
-function closeFilter() {
-    const contentDiv = document.querySelector("#loadFilter");
-    const openBtn = document.querySelector(".filterBtn");
 
-    contentDiv.style.display = 'none';
-    openBtn.style.display = 'block';
+//MODAL
+async function loadBookingModal(challenge) {
+    const res = await fetch('/booking/booking.html');
+    const html = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    const overlay = doc.querySelector('.booking-overlay');
+    const modal = doc.querySelector('#booking-modal');
+
+    modal.querySelector('#booking-room-title-step1').textContent = challenge.title;
+
+    document.body.appendChild(modal); // lägg till i all.html
+    modal.classList.add('is-visible');
 }
+
+/*CLOSE MODAL
+modal.querySelector('.booking-overlay').addEventListener('click', () => modal.remove());
+const closeBtn = modal.querySelector('#booking-close');
+if(closeBtn) closeBtn.addEventListener('click', () => modal.remove());
+}
+*/

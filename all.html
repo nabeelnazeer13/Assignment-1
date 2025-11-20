@@ -9,6 +9,7 @@
   <link rel="icon" type="image/x-icon" href="https://lh3.googleusercontent.com/d/1k5h2AX1nipjcw5oalkAmBJpc3xOodBbB">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="/booking/booking.css" />
 </head>
 
 <body>
@@ -46,15 +47,15 @@
 
       <!--knapp för att öppna filterfunktionen-->
       <div class="filter__challenges">
-        <button class="filterBtn" onclick="openFilter()">Filter challenges</button>
+        <button class="filterBtn" onclick="loadFilterChallenges()">Filter challenges</button>
       </div>
 
-      <!--kryss för att stänga ner filtersidan-->
+      <!--kryss för att stänga ner filtersidan
       <section class="filters" id="loadFilter">
         <h2 class="filters__title">Filter challenges </h2>
         <button class="filters__close" onclick="closeFilter()">&#10006;</button>
-
-        <!--Filterinnehållet-->
+-->
+     <!--  
           <div class="filter__row">
 
             <div class="filter type">
@@ -121,10 +122,11 @@
               </div>
             </div>
         </section>
-        <p id="all-status" class="status"></p>
-        <ul id="all-list" class="challenges__list challenges__list--all"></ul>
+       
       </section>
-
+-->
+       <p id="all-status" class="status"></p>
+        <ul id="all-list" class="challenges__list challenges__list--all"></ul>
   </main>
   <footer class="footer">
     <div class="footer__summary footerSection">
@@ -155,7 +157,7 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script typ2="module" src="main.js"></script>
 </body>
 
 </html>

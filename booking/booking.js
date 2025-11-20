@@ -139,5 +139,10 @@ console.log(data);
 searchslots_button.addEventListener('click', create_fetch_url);
 makebooking_button.addEventListener('click', capturebookinginfo);
 
+//Back to all.html
+const backtoChallenges_button = document.querySelector("#booking-close");
+backtoChallenges_button.addEventListener('click', () => {
 
+window.location.href = "/all.html";
+});
 

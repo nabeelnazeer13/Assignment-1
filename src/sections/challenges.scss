@@ -154,10 +154,32 @@
   &__bookbutton {
     font-size: 0.9rem;
     margin-top:3rem;
+    cursor: pointer;
     @include button($esc-red, $esc-textlight);
     max-width: 20rem;
     width: auto; //hindrar från att fylla hela bredden
     padding: 0.5rem 1rem; //höjd
     white-space: nowrap;
+  }
+}
+
+.booking-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+
+  &.is-visible {
+    display: block;
+  }
+
+  .booking-step {
+    background: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    max-width: 500px;
+    border-radius: 0.5rem;
+    position: relative;
   }
 }
