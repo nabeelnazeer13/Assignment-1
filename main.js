@@ -141,27 +141,43 @@ if (listElAll && statusElAll) {
 
 //FILTER
 async function loadFilterChallenges() {
-    const res = await fetch('/filter.html');
-    const html = await res.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const filterSection = doc.querySelector('.filters');
-    if (!filterSection) {
-        console.error("Ingen .filters hittades i filter.html");
-        return;
+       try {
+        const res = await fetch('/filter.html');
+        if (!res.ok) throw new Error('Faild to load filter.html');
+
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+
+        const filterSection = doc.querySelector('.filters');
+
+        if (!filterSection) throw new error('No .filters found in filters.html');
+
+        const filterBtnChallenges = document.querySelector('.filterBtn');
+        const challengeList = document.querySelector('#all-list');// lägg till i all.html
+        if (!challengeList) throw new Error('No #all-list found');
+
+        //Ta bort tidigare filter-instans
+        document.querySelector('.filters')?.remove();
+
+        //Sätt in filtret och visa det
+        challengeList.parentNode.insertBefore(filterSection, challengeList);
+        filterSection.classList.add('is-visible');
+
+        //Göm knappen om den finns
+        if (filterBtnChallenges) filterBtnChallenges.style.display = 'none';
+
+        const closeBtn = filterSection.querySelector('.filters__close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+
+                filterSection.remove();
+                if (filterBtnChallenges) filterBtnChallenges.style.display = '';
+            });
+        }
+
+    } catch (err) {
+        console.error('loadFilterChallenges error', err);
     }
-    const filterBtnChallenges = document.querySelector('.filter__challenges');
-    const challengeList = document.querySelector('#all-list');// lägg till i all.html
-
-
-    challengeList.parentNode.insertBefore(filterSection, challengeList);
-    filterSection.classList.add('is-visible');
-
-    const closeBtn = filterSection.querySelector('.filters__close');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => filterSection.remove());
-    }
-
 }
 
 
