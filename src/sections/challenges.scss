@@ -154,6 +154,7 @@
   &__bookbutton {
     font-size: 0.9rem;
     margin-top:3rem;
+    cursor: pointer;
     @include button($esc-red, $esc-textlight);
     max-width: 20rem;
     width: auto; //hindrar från att fylla hela bredden

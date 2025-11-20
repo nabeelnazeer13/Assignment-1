@@ -562,6 +562,7 @@
 .challenge__bookbutton {
   font-size: 0.9rem;
   margin-top: 3rem;
+  cursor: pointer;
   background-color: #E3170A;
   border-radius: 0.4rem;
   border-width: 0;
