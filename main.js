@@ -182,18 +182,24 @@ async function loadFilterChallenges() {
 }
 //MODAL
 async function loadBookingModal(challenge) {
-    const res = await fetch('/booking/booking.html');
-    const html = await res.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+    try {
+        const res = await fetch('/booking/booking.html');
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
 
-    const overlay = doc.querySelector('.booking-overlay');
-    const modal = doc.querySelector('#booking-modal');
+        const overlay = doc.querySelector('.booking-overlay');
+        const modal = doc.querySelector('#booking-modal');
 
-    modal.querySelector('#booking-room-title-step1').textContent = challenge.title;
+        modal.querySelector('#booking-room-title-step1').textContent = challenge.title;
 
-    document.body.appendChild(modal); // lägg till i all.html
-    modal.classList.add('is-visible');
+        document.body.appendChild(modal); // lägg till i all.html
+        if(overlay) document.body.appendChild(overlay);
+
+        overlay?.classList.add('is-visible');
+        modal.classList.add('is-visible');
+    } catch (err){
+        console.error(loadBookingModal, err);
+    }
 }
 
 /*CLOSE MODAL
