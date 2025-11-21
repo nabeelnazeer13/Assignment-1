@@ -4,10 +4,12 @@ const closemenu = document.querySelector('.header__navcontainernavclose')
 
 
 mobilemenu.addEventListener("click", () => {
-navmenu.classList.toggle('mobileactive'); });
+    navmenu.classList.toggle('mobileactive');
+});
 
 closemenu.addEventListener("click", () => {
-navmenu.classList.toggle('mobileactive'); });
+    navmenu.classList.toggle('mobileactive');
+});
 
 
 //Funktion to download api, is provided in task 4 Specifikation ==> API: https://lernia-sjj-assignments.vercel.app/
@@ -67,8 +69,8 @@ function createChallengeLi(ch) {
 
       <p class="challenge__description">${description}</p>
 
-      <!-- valfritt: visa etiketter om du har stil för dem -->
-      ${labels.length ? `<p class="challenge__labels">${labels.map(l => `#${l}`).join(' ')}</p>` : ''}
+      <!-- valfritt: visa etiketter om du har stil för dem--> 
+      ${labels.length ? `<div class="challenge__labels">${labels.map(l => `<span class="tags">#${l}</span>`).join(' ')}</div>` : ''}
         
       <div class="challenge__buttonWrapper">
       <button class="challenge__bookbutton">
@@ -77,6 +79,11 @@ function createChallengeLi(ch) {
       </div>
     </article>
   `;
+
+    const button = li.querySelector('.challenge__bookbutton');
+    button.addEventListener('click', () => {
+        loadBookingModal(ch); // öppnar modal med challenge-data
+    });
     return li;
 }
 
@@ -131,3 +138,77 @@ if (listElMain && statusElMain) {
 if (listElAll && statusElAll) {
     initAll();
 }
+
+//FILTER
+async function loadFilterChallenges() {
+       try {
+        const res = await fetch('/filter.html');
+        if (!res.ok) throw new Error('Faild to load filter.html');
+
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+
+        const filterSection = doc.querySelector('.filters');
+
+        if (!filterSection) throw new error('No .filters found in filters.html');
+
+        const filterBtnChallenges = document.querySelector('.filterBtn');
+        const challengeList = document.querySelector('#all-list');// lägg till i all.html
+        if (!challengeList) throw new Error('No #all-list found');
+
+        //Ta bort tidigare filter-instans
+        document.querySelector('.filters')?.remove();
+
+        //Sätt in filtret och visa det
+        challengeList.parentNode.insertBefore(filterSection, challengeList);
+        filterSection.classList.add('is-visible');
+
+        //Göm knappen om den finns
+        if (filterBtnChallenges) filterBtnChallenges.style.display = 'none';
+
+        const closeBtn = filterSection.querySelector('.filters__close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+
+                filterSection.remove();
+                if (filterBtnChallenges) filterBtnChallenges.style.display = '';
+            });
+        }
+
+    } catch (err) {
+        console.error('loadFilterChallenges error', err);
+    }
+}
+
+
+//MODAL
+async function loadBookingModal(challenge) {
+    try {
+        const res = await fetch('/booking/booking.html');
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+
+        const overlay = doc.querySelector('.booking-overlay');
+        const modal = doc.querySelector('#booking-modal');
+
+        modal.querySelector('#booking-room-title-step1').textContent = challenge.title;
+
+        // Ta bort ev. tidigare instanser
+        document.querySelector('.booking-overlay')?.remove();
+        document.querySelector('#booking-modal')?.remove();
+
+        if (overlay) document.body.appendChild(overlay);
+        document.body.appendChild(modal); // lägg till i all.html
+        overlay?.classList.add('is-visible');
+        modal.classList.add('is-visible');
+    } catch (err) {
+        console.error(loadBookingModal, err);
+    }
+}
+
+/*CLOSE MODAL
+modal.querySelector('.booking-overlay').addEventListener('click', () => modal.remove());
+const closeBtn = modal.querySelector('#booking-close');
+if(closeBtn) closeBtn.addEventListener('click', () => modal.remove());
+}
+*/

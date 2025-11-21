@@ -185,7 +185,6 @@ function toggleTag(event) {
 
     console.log("Selected tags:", selectedTags);
 }
-
 //adds eventListener to all tags
 tagElement.forEach(x => {
     x.addEventListener('click', toggleTag);
