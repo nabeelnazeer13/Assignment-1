@@ -141,7 +141,7 @@ if (listElAll && statusElAll) {
 
 //FILTER
 async function loadFilterChallenges() {
-    try {
+       try {
         const res = await fetch('/filter.html');
         if (!res.ok) throw new Error('Faild to load filter.html');
 
@@ -178,7 +178,6 @@ async function loadFilterChallenges() {
     } catch (err) {
         console.error('loadFilterChallenges error', err);
     }
-
 }
 //MODAL
 async function loadBookingModal(challenge) {

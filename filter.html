@@ -12,75 +12,71 @@
 
 <body>
     <section class="filters">
-        <h2 class="filters__title">Filter challenges</h2>
+        <h2 class="filters__title"> Filter challenges</h2>
         <button class="filters__close">&#10006;</button>
+
+        <div class="filter type">
+            <h3 class="filter__title">By type</h3>
+            <div class="type__option">
+                <input type="checkbox" value="online" id="online" class="filter__online checkbox">
+                <label for="online">Include online challenges</label>
+            </div>
+            <div class="type__option">
+                <input type="checkbox" value="onsite" id="onsite" class="filter__on-site checkbox">
+                <label for="onsite">Include on-site challenges</label>
+            </div>
+        </div>
+
+        <div class="filter rating">
+            <h3 class="filter__title">By rating</h3>
+
+            <div class="rating__box">
+                <div class="rating__stars rating__stars--min">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+
+                <p>to</p>
+
+                <div class="rating__stars rating__stars--max">
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter tags">
+            <h3 class="filter__title">By tags</h3>
+
+            <div class="tag">
+                <p>Web</p>
+            </div>
+            <div class="tag">
+                <p>Linux</p>
+            </div>
+            <div class="tag">
+                <p>Javascript</p>
+            </div>
+        </div>
 
         <div class="filter__row">
 
-            <div class="filter type">
-                <h3 class="filter__title">By type</h3>
-                <div class="type__option">
-                    <input type="checkbox" id="online" class="checkbox" value="online">
-                    <label for="online"></label> Include online challenges
-
-                </div>
-                <div class="type__option">
-                    <input type="checkbox" id="onsite" class="checkbox" value="onsite">
-                    <label for="offline"></label> Include on-site challenges
-                </div>
+            <div class="filter search-bar">
+                <h3 class="filter__title">Or type to search for a keyword</h3>
+                <input type="text" class="filter__user-input" placeholder="Start typing to filter...">
             </div>
-
-
-            <div class="filter rating">
-                <h3 class="filter__title">By rating</h3>
-
-                <div class="rating__box">
-
-                    <div id="minRating" class="rating__stars">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-
-                    <p>to</p>
-
-                    <div id="maxRating" class="rating__stars">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="filter tags">
-                <h3 class="filter__title">By tags</h3>
-
-                <div class="tag">
-                    <p>Web</p>
-                </div>
-                <div class="tag">
-                    <p>Linux</p>
-                </div>
-                <div class="tag">
-                    <p>Javascript</p>
-                </div>
-
-
-            </div>
-
-            <div class="filter__row">
-
-                <div class="filter search-bar">
-                    <h3 class="filter__title">Or type to search for a keyword</h3>
-                    <input type="text" placeholder="Start typing to filter...">
-                </div>
-            </div>
+        </div>
     </section>
+    <!--Tillfälligt för att testköra sökfiltrering, ersätts sedan  -->
+    <section class="filter-results">
+        <h2>Filtered results (test)</h2>
+        <ul id="challengesList" class="test-challenge-list"></ul>
     </section>
 </body>
 
