@@ -185,7 +185,7 @@ async function loadFilterChallenges() {
     } catch (err) {
         console.error('loadFilterChallenges error', err);
         const statusElAll = document.querySelector('#all-status');
-    if (statusElAll) statusElAll.textContent = 'Could not load the filter : ' + err.message;
+    if (statusElAll) statusElAll.textContent = 'I am sorry, could not load the filter : ' + err.message;
     }
 }
 
