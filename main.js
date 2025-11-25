@@ -201,11 +201,8 @@ async function loadBookingModal(challenge) {
         if (modal) document.body.appendChild(modal); // lägg till i all.html
         overlay?.classList.add('is-visible');
         modal?.classList.add('is-visible');
-
-        // Initialize booking.js behavior now that elements exist
-        if (window.initBookingModal && typeof window.initBookingModal === 'function') {
-            window.initBookingModal(challenge);
-        }
+        initialiseBookingModal(challenge);
+        
     } catch (err) {
         console.error(loadBookingModal, err);
     }
