@@ -67,10 +67,10 @@
 
     &__stars {
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: center;
         gap: 0.25rem;
-        direction: rtl; //för att få stjärnorna till vänster lyser upp
+        //direction: rtl; //för att få stjärnorna till vänster lyser upp
         cursor: pointer;
     }
 

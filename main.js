@@ -13,7 +13,7 @@ closemenu.addEventListener("click", () => {
 
 
 //Funktion to download api, is provided in task 4 Specifikation ==> API: https://lernia-sjj-assignments.vercel.app/
-async function getChallenges() {
+export async function getChallenges() {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
     const data = await res.json();
     return data.challenges;
@@ -22,7 +22,7 @@ async function getChallenges() {
 
 //unktion to create list challenges
 
-function createChallengeLi(ch) {
+export function createChallengeLi(ch) {
     const {
         title,
         description,
@@ -141,7 +141,7 @@ if (listElAll && statusElAll) {
 
 //FILTER
 async function loadFilterChallenges() {
-       try {
+    try {
         const res = await fetch('/filter.html');
         if (!res.ok) throw new Error('Faild to load filter.html');
 
@@ -163,6 +163,11 @@ async function loadFilterChallenges() {
         challengeList.parentNode.insertBefore(filterSection, challengeList);
         filterSection.classList.add('is-visible');
 
+        //KOPPLAR IN FILTER.JS
+        if (typeof initializeFilters === "function") {
+            initializeFilters();
+        };
+
         //Göm knappen om den finns
         if (filterBtnChallenges) filterBtnChallenges.style.display = 'none';
 
@@ -179,6 +184,10 @@ async function loadFilterChallenges() {
         console.error('loadFilterChallenges error', err);
     }
 }
+
+//gör loadFilterChallenges tillgänglig för klick i html
+window.loadFilterChallenges = loadFilterChallenges;
+
 
 
 //MODAL
