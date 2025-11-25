@@ -107,7 +107,7 @@ async function initMain() {
 }
 
 
-//Function to download cards for next site.
+//Function to download cards for all challenges site.
 const listElAll = document.getElementById('all-list');
 const statusElAll = document.getElementById('all-status');
 
@@ -139,7 +139,7 @@ if (listElAll && statusElAll) {
     initAll();
 }
 
-//FILTER
+//FILTER function to load in the HTML from filter.html
 async function loadFilterChallenges() {
        try {
         const res = await fetch('/filter.html');
@@ -150,20 +150,20 @@ async function loadFilterChallenges() {
 
         const filterSection = doc.querySelector('.filters');
 
-        if (!filterSection) throw new error('No .filters found in filters.html');
+        if (!filterSection) throw new Error('No .filters found in filters.html');
 
         const filterBtnChallenges = document.querySelector('.filterBtn');
-        const challengeList = document.querySelector('#all-list');// lägg till i all.html
+        const challengeList = document.querySelector('#all-list');// lägg till i 'all-list'
         if (!challengeList) throw new Error('No #all-list found');
 
         //Ta bort tidigare filter-instans
         document.querySelector('.filters')?.remove();
 
-        //Sätt in filtret och visa det
+        //Give filterSection the class 'is visible' and show it
         challengeList.parentNode.insertBefore(filterSection, challengeList);
         filterSection.classList.add('is-visible');
 
-        //Göm knappen om den finns
+        //Hide the button filterBtnChallenges
         if (filterBtnChallenges) filterBtnChallenges.style.display = 'none';
 
         const closeBtn = filterSection.querySelector('.filters__close');
@@ -179,7 +179,9 @@ async function loadFilterChallenges() {
         console.error('loadFilterChallenges error', err);
     }
 }
-//MODAL
+
+
+//MODAL function to load the HTML from booking.html
 async function loadBookingModal(challenge) {
     try {
         const res = await fetch('/booking/booking.html');
@@ -191,12 +193,12 @@ async function loadBookingModal(challenge) {
 
         modal.querySelector('#booking-room-title-step1').textContent = challenge.title;
 
-        // Ta bort ev. tidigare instanser
+        //Remove old bookings
         document.querySelector('.booking-overlay')?.remove();
         document.querySelector('#booking-modal')?.remove();
 
         if (overlay) document.body.appendChild(overlay);
-        document.body.appendChild(modal); // lägg till i all.html
+        document.body.appendChild(modal); // Add modal to body
         overlay?.classList.add('is-visible');
         modal.classList.add('is-visible');
     } catch (err) {
