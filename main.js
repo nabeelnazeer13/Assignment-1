@@ -2,7 +2,7 @@ const mobilemenu = document.querySelector('.header__mainmobilenavmenu');
 const navmenu = document.querySelector('.header__navcontainer')
 const closemenu = document.querySelector('.header__navcontainernavclose')
 
-
+//Open and close mobilemenu
 mobilemenu.addEventListener("click", () => {
     navmenu.classList.toggle('mobileactive');
 });
@@ -13,6 +13,7 @@ closemenu.addEventListener("click", () => {
 
 
 //Funktion to download api, is provided in task 4 Specifikation ==> API: https://lernia-sjj-assignments.vercel.app/
+//Returns a list of challenges
 async function getChallenges() {
     const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
     const data = await res.json();
@@ -20,8 +21,7 @@ async function getChallenges() {
 };
 
 
-//unktion to create list challenges
-
+//Function to create list for every challenge
 function createChallengeLi(ch) {
     const {
         title,
@@ -41,6 +41,7 @@ function createChallengeLi(ch) {
     const emptyStars = '☆'.repeat(empty);
     const typeText = type === 'onsite' ? '(on-site)' : '(networked)';
 
+    //Creates a li-element med HTML for challenge
     const li = document.createElement('li');
     li.className = 'challenges__listItem';
     li.innerHTML = `
@@ -80,17 +81,19 @@ function createChallengeLi(ch) {
     </article>
   `;
 
+    //Button to open bookingModal for that specific challenge        
     const button = li.querySelector('.challenge__bookbutton');
     button.addEventListener('click', () => {
-        loadBookingModal(ch); // öppnar modal med challenge-data
+        loadBookingModal(ch); // open bookingModal with challenge-data
     });
     return li;
 }
 
-//Function to download cards for front site
+
 const listElMain = document.getElementById('main-list');
 const statusElMain = document.getElementById('main-status');
 
+//Function to get all challenges and show the three best rated on main site. 
 async function initMain() {
     try {
         statusElMain.textContent = 'Laddar…';
@@ -107,7 +110,7 @@ async function initMain() {
 }
 
 
-//Function to download cards for all challenges site.
+//Function to get all challenges and show the 15 best rated on all-challenges. 
 const listElAll = document.getElementById('all-list');
 const statusElAll = document.getElementById('all-status');
 
@@ -141,7 +144,7 @@ if (listElAll && statusElAll) {
 
 //FILTER function to load in the HTML from filter.html
 async function loadFilterChallenges() {
-       try {
+    try {
         const res = await fetch('/filter.html');
         if (!res.ok) throw new Error('Faild to load filter.html');
 
@@ -156,7 +159,7 @@ async function loadFilterChallenges() {
         const challengeList = document.querySelector('#all-list');// lägg till i 'all-list'
         if (!challengeList) throw new Error('No #all-list found');
 
-        //Ta bort tidigare filter-instans
+        //Removes old filter
         document.querySelector('.filters')?.remove();
 
         //Give filterSection the class 'is visible' and show it
@@ -166,6 +169,7 @@ async function loadFilterChallenges() {
         //Hide the button filterBtnChallenges
         if (filterBtnChallenges) filterBtnChallenges.style.display = 'none';
 
+        //Add a closeing-button 
         const closeBtn = filterSection.querySelector('.filters__close');
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
@@ -193,7 +197,7 @@ async function loadBookingModal(challenge) {
 
         modal.querySelector('#booking-room-title-step1').textContent = challenge.title;
 
-        //Remove old bookings
+        //Remove old modals
         document.querySelector('.booking-overlay')?.remove();
         document.querySelector('#booking-modal')?.remove();
 
