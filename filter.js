@@ -16,11 +16,59 @@ function initializeFilters() {
         minRating: 0,
         maxRating: 5
     };
+    
 
-    getChallenges().then(data => {
-        allChallengesData = data;
-    });
+    
+getChallenges().then(data => {
+    allChallengesData = data;
 
+    function extractUniqueTags(challenges) {
+        const all = challenges.flatMap(ch => ch.labels || []);
+        const normalized = all.map(t => String(t).trim().toLowerCase()).filter(Boolean);
+        return Array.from(new Set(normalized)).sort((a,b) => a.localeCompare(b));
+    }
+
+    const tagListContainer = document.getElementById("tag-list");
+    if (!tagListContainer) {
+        console.warn("Hittar inte #tag-list i DOM");
+        return;
+    }
+
+    const tags = extractUniqueTags(data);
+    tagListContainer.innerHTML = "";
+
+    if (tags.length === 0) {
+        tagListContainer.innerHTML = '<p class="no-tags">Inga taggar att visa.</p>';
+    } else {
+        tags.forEach(tag => {
+            const div = document.createElement("div");
+            div.className = "tag";
+            div.setAttribute("data-tag", tag);
+
+            const p = document.createElement("p");
+            p.textContent = tag.charAt(0).toUpperCase() + tag.slice(1); 
+            div.appendChild(p);
+
+            div.addEventListener("click", () => {
+                const idx = filterState.tags.indexOf(tag);
+                if (idx > -1) {
+                    filterState.tags.splice(idx, 1);
+                    div.classList.remove("checked");
+                } else {
+                    filterState.tags.push(tag);
+                    div.classList.add("checked");
+                }
+                applyFilters();
+                console.log("Valda taggar:", filterState.tags);
+            });
+
+            tagListContainer.appendChild(div);
+        });
+    }
+
+});
+
+    
 
     ratingStarsMin.forEach((star, index) => {
         star.addEventListener("click", () => {
@@ -73,33 +121,6 @@ function initializeFilters() {
         applyFilters();
     })
 
-    //toogle tag state, added to selectedTags array if checked
-    const selectedTags = [];
-    const tagElement = document.querySelectorAll('.tag');
-
-    function toggleTag(event) {
-        const tagElement = event.currentTarget;
-        const tag = tagElement.textContent.trim().toLowerCase(); //lowercase and trim to be same as in API
-        const index = selectedTags.indexOf(tag);
-
-        if (index > -1) {
-            selectedTags.splice(index, 1);
-            tagElement.classList.remove("checked");
-        } else {
-            selectedTags.push(tag);
-            tagElement.classList.add("checked");
-        }
-
-        filterState.tags = selectedTags;
-        applyFilters();
-
-        console.log("Selected tags:", selectedTags);
-    }
-
-    //adds eventListener to all tags
-    tagElement.forEach(x => {
-        x.addEventListener('click', toggleTag);
-    });
 
     function renderFilteredChallenges(challenges) {
         const list = document.getElementById("all-list");
