@@ -604,8 +604,12 @@
 }
 @media screen and (min-width: 700px) {
   .filters {
-    width: 70%;
     border: 1px solid rgb(216, 216, 216);
+  }
+}
+@media screen and (min-width: 1399px) {
+  .filters {
+    width: 70%;
   }
 }
 .filters.is-visible {
@@ -630,7 +634,7 @@
 .filter {
   margin-bottom: 2rem;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .filter {
     float: left;
     width: 33.33%;
@@ -644,7 +648,7 @@
   padding-bottom: 0.5rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .rating {
     float: left;
     width: 33.33%;
@@ -678,7 +682,7 @@
   padding: 0 1rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .tags {
     float: left;
     width: 33.33%;
@@ -715,7 +719,7 @@
     width: 20rem;
   }
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .search-bar {
     width: 30rem;
   }

@@ -37,6 +37,12 @@ $esc-textlight: #fff;
     }
 }
 
+@mixin small-desktop {
+    @media screen and (min-width: 1399px) {
+        @content;
+    }
+}
+
 @mixin button($bg-color, $fg-color) {
   background-color: $bg-color;
   border-radius: 0.4rem;
