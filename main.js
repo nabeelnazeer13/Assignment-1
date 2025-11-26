@@ -20,7 +20,7 @@ export async function getChallenges() {
 };
 
 
-//unktion to create list challenges
+//function to create list challenges
 export function createChallengeLi(ch) {
     const {
         title,
@@ -91,9 +91,8 @@ export function createChallengeLi(ch) {
     return li;
 }
 
-
-const listElMain = document.getElementById('main-list');
-const statusElMain = document.getElementById('main-status');
+const listElMain = document.querySelector('#main-list');
+const statusElMain = document.querySelector('#main-status');
 
 //Function to get all challenges and show the three best rated on main site. 
 async function initMain() {
@@ -112,8 +111,9 @@ async function initMain() {
 }
 
 //Function to get all challenges and show the 15 best rated on all-challenges. 
-const listElAll = document.getElementById('all-list');
-const statusElAll = document.getElementById('all-status');
+
+const listElAll = document.querySelector('#all-list');
+const statusElAll = document.querySelector('#all-status');
 
 async function initAll() {
     try {
@@ -217,7 +217,7 @@ async function loadBookingModal(challenge) {
         modal.classList.add('is-visible');
     } catch (err) {
         console.error(loadBookingModal, err);
-        const statusElAll = document.querySelector('all-status');
+        const statusElAll = document.querySelector('#all-status');
         alert('Could not open booking modal, try again later!');
 }
 }
