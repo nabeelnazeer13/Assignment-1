@@ -8,14 +8,15 @@
     position: relative;
 
     @include desktop {
-
-        width: 70%;
         border: 1px solid rgb(216, 216, 216);
-
-
     }
 
-    &.is-visible{
+    @include small-desktop {
+        width: 70%;
+    }
+
+
+    &.is-visible {
         display: block;
     }
 
@@ -26,13 +27,24 @@
 
 
     }
+
+    &__close {
+        position: absolute;
+        top: 0.1rem;
+        right: 0.1rem;
+        font-size: 2rem;
+        border: 0;
+        background-color: white;
+        cursor: pointer;
+        z-index: 999;
+    }
 }
 
 
 .filter {
     margin-bottom: 2rem;
 
-    @include desktop {
+    @include small-desktop {
         float: left;
         width: 33.33%;
     }
@@ -52,7 +64,7 @@
 
 .rating {
 
-    @include desktop {
+    @include small-desktop {
         float: left;
         width: 33.33%;
     }
@@ -67,10 +79,10 @@
 
     &__stars {
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: center;
         gap: 0.25rem;
-        direction: rtl; //för att få stjärnorna till vänster lyser upp
+        //direction: rtl; //för att få stjärnorna till vänster lyser upp
         cursor: pointer;
     }
 
@@ -98,7 +110,7 @@
 
 .tags {
 
-    @include desktop {
+    @include small-desktop {
         float: left;
         width: 33.33%;
 
@@ -143,7 +155,7 @@
     }
 
     //NYTT
-    @include desktop {
+    @include small-desktop {
         width: 30rem;
     }
 }
@@ -152,15 +164,4 @@
 .filterBtn {
     font-size: 1.1rem;
     margin-bottom: 3rem;
-}
-
-.filters__close {
-    position: absolute;
-    top: 0.1rem;
-    right: 0.1rem;
-    font-size: 2rem;
-    border: 0;
-    background-color: white;
-    cursor: pointer;
-    z-index: 999;
 }

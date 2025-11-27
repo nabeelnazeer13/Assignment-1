@@ -533,7 +533,7 @@
   border-radius: 50%;
   height: 60px;
   width: 60px;
-  z-index: 2;
+  z-index: 1;
   font-size: 30px;
 }
 .challenge__icon svg {
@@ -604,8 +604,12 @@
 }
 @media screen and (min-width: 700px) {
   .filters {
-    width: 70%;
     border: 1px solid rgb(216, 216, 216);
+  }
+}
+@media screen and (min-width: 1399px) {
+  .filters {
+    width: 70%;
   }
 }
 .filters.is-visible {
@@ -616,11 +620,21 @@
   font-weight: 400;
   margin-bottom: 1rem;
 }
+.filters__close {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  font-size: 2rem;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  z-index: 999;
+}
 
 .filter {
   margin-bottom: 2rem;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .filter {
     float: left;
     width: 33.33%;
@@ -634,7 +648,7 @@
   padding-bottom: 0.5rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .rating {
     float: left;
     width: 33.33%;
@@ -648,10 +662,9 @@
 }
 .rating__stars {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   align-items: center;
   gap: 0.25rem;
-  direction: rtl;
   cursor: pointer;
 }
 .rating .fa-star {
@@ -669,7 +682,7 @@
   padding: 0 1rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .tags {
     float: left;
     width: 33.33%;
@@ -706,7 +719,7 @@
     width: 20rem;
   }
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1399px) {
   .search-bar {
     width: 30rem;
   }
@@ -715,17 +728,6 @@
 .filterBtn {
   font-size: 1.1rem;
   margin-bottom: 3rem;
-}
-
-.filters__close {
-  position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
-  font-size: 2rem;
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-  z-index: 999;
 }
 
 html, body {

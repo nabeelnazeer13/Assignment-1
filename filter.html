@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/main.css">
-    <script src="filter.js" defer></script>
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Filter function</title>
 </head>
@@ -32,21 +31,21 @@
 
             <div class="rating__box">
                 <div class="rating__stars rating__stars--min">
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
                     <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
                 </div>
 
                 <p>to</p>
 
                 <div class="rating__stars rating__stars--max">
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
                 </div>
             </div>
         </div>
@@ -72,11 +71,6 @@
                 <input type="text" class="filter__user-input" placeholder="Start typing to filter...">
             </div>
         </div>
-    </section>
-    <!--Tillfälligt för att testköra sökfiltrering, ersätts sedan  -->
-    <section class="filter-results">
-        <h2>Filtered results (test)</h2>
-        <ul id="challengesList" class="test-challenge-list"></ul>
     </section>
 </body>
 
