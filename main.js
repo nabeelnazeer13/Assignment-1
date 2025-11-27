@@ -215,7 +215,7 @@ window.loadFilterChallenges = loadFilterChallenges;
 //MODAL function to load the HTML from booking.html
 async function loadBookingModal(challenge) {
     try {
-        const res = await fetch('/booking/booking.html');
+        const res = await fetch('booking/booking.html');
         const html = await res.text();
         const doc = new DOMParser().parseFromString(html, 'text/html');
 
