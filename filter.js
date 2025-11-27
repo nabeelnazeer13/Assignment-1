@@ -6,8 +6,8 @@ let filterState = {
         online: false,
         onSite: false,
         tags: [],
-        minRating: 0,
-        maxRating: 5
+        minRating: 0, //lowest possible rating/unrated
+        maxRating: 5 //highest possible rating
     };
 
 function initializeFilters() {
@@ -26,14 +26,13 @@ function initializeFilters() {
         applyFilters();
     });
 
-//event listeners for input
+//event listeners for each filter type
  ratingStarsMin.forEach((star, index) => {
     star.addEventListener("click", () => {
         filterState.minRating = ratingStarsMin.length - index;
         applyFilters();
     });
 });
-
 
 ratingStarsMax.forEach((star, index) => {
     star.addEventListener("click", () => {
@@ -44,22 +43,20 @@ ratingStarsMax.forEach((star, index) => {
 
     onsiteCheckbox.addEventListener("change", () => {
         filterState.onSite = onsiteCheckbox.checked;
-        applyFilters();
-       
+        applyFilters(); 
     });
 
     onlineCheckbox.addEventListener("change", () => {
         filterState.online = onlineCheckbox.checked;
         applyFilters();
-  
     });
 
 
     filterUserInput.addEventListener("input", (e) => {
         filterState.search = e.target.value.toLowerCase();
         applyFilters();
-      
-    })
+
+    });
 
 
     //toogle tag state, added to selectedTags if checked
@@ -118,7 +115,7 @@ ratingStarsMax.forEach((star, index) => {
      ratingStarsMin.forEach((star, index) => {
         const selected = filterState.minRating;
         const threshold = ratingStarsMin.length - selected;
-        star.classList.toggle("checked", index >= threshold);
+        star.classList.toggle("checked", index >= threshold); 
     });
 
    
