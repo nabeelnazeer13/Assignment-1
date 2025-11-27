@@ -1,14 +1,7 @@
 import { getChallenges, createChallengeLi } from './main.js';
 
-function initializeFilters() {
-
-    const onlineCheckbox = document.querySelector(".filter__online");
-    const onsiteCheckbox = document.querySelector(".filter__on-site");
-    const ratingStarsMin = document.querySelectorAll(".rating__stars--min .fa-star");
-    const ratingStarsMax = document.querySelectorAll(".rating__stars--max .fa-star");
-    const filterUserInput = document.querySelector(".filter__user-input");
-    let allChallengesData = []; //Spara api-data
-    let filterState = {
+//moved to outside of initializeFilters to work with updateUIWithState
+let filterState = {
         search: "",
         online: false,
         onSite: false,
@@ -17,64 +10,60 @@ function initializeFilters() {
         maxRating: 5
     };
 
+function initializeFilters() {
+
+    const onlineCheckbox = document.querySelector(".filter__online");
+    const onsiteCheckbox = document.querySelector(".filter__on-site");
+    const ratingStarsMin = document.querySelectorAll(".rating__stars--min .fa-star");
+    const ratingStarsMax = document.querySelectorAll(".rating__stars--max .fa-star");
+    const filterUserInput = document.querySelector(".filter__user-input");
+    let allChallengesData = []; //Spara api-data
+
     getChallenges().then(data => {
         allChallengesData = data;
+
+        updateUIWithState();
+        applyFilters();
     });
 
-
-    ratingStarsMin.forEach((star, index) => {
-        star.addEventListener("click", () => {
-            const selected = ratingStarsMin.length - index;
-            filterState.minRating = selected;
-
-            ratingStarsMin.forEach((s, i) => {
-                if (i >= ratingStarsMin.length - selected) {
-                    s.classList.add("checked");
-                }
-                else {
-                    s.classList.remove("checked");
-                }
-            })
-            applyFilters();
-        });
+//event listeners for input
+ ratingStarsMin.forEach((star, index) => {
+    star.addEventListener("click", () => {
+        filterState.minRating = ratingStarsMin.length - index;
+        applyFilters();
     });
+});
 
-    ratingStarsMax.forEach((star, index) => {
-        star.addEventListener("click", () => {
-            const selected = ratingStarsMax.length - index;
-            filterState.maxRating = selected;
 
-            ratingStarsMax.forEach((s, i) => {
-                if (i >= ratingStarsMax.length - selected) {
-                    s.classList.add("checked");
-                }
-                else {
-                    s.classList.remove("checked");
-                }
-            })
-
-            applyFilters();
-        });
+ratingStarsMax.forEach((star, index) => {
+    star.addEventListener("click", () => {
+        filterState.maxRating = ratingStarsMax.length - index;
+        applyFilters();
     });
+});
 
     onsiteCheckbox.addEventListener("change", () => {
         filterState.onSite = onsiteCheckbox.checked;
         applyFilters();
+       
     });
 
     onlineCheckbox.addEventListener("change", () => {
         filterState.online = onlineCheckbox.checked;
         applyFilters();
+  
     });
 
 
     filterUserInput.addEventListener("input", (e) => {
         filterState.search = e.target.value.toLowerCase();
         applyFilters();
+      
     })
 
-    //toogle tag state, added to selectedTags array if checked
-    const selectedTags = [];
+
+    //toogle tag state, added to selectedTags if checked
+    let selectedTags = filterState.tags.slice();
     const tagElement = document.querySelectorAll('.tag');
 
     function toggleTag(event) {
@@ -84,14 +73,13 @@ function initializeFilters() {
 
         if (index > -1) {
             selectedTags.splice(index, 1);
-            tagElement.classList.remove("checked");
         } else {
             selectedTags.push(tag);
-            tagElement.classList.add("checked");
         }
 
         filterState.tags = selectedTags;
         applyFilters();
+       
 
         console.log("Selected tags:", selectedTags);
     }
@@ -115,11 +103,41 @@ function initializeFilters() {
             return;
         }
 
+    //ch = each challenge from main.js
         challenges.forEach(ch => {
             list.appendChild(createChallengeLi(ch));
         });
     };
 
+    //update filter UI with filter state
+    function updateUIWithState() {
+    
+    onlineCheckbox.checked = filterState.online;
+    onsiteCheckbox.checked = filterState.onSite;
+
+     ratingStarsMin.forEach((star, index) => {
+        const selected = filterState.minRating;
+        const threshold = ratingStarsMin.length - selected;
+        star.classList.toggle("checked", index >= threshold);
+    });
+
+   
+    ratingStarsMax.forEach((star, index) => {
+        const selected = filterState.maxRating;
+        const threshold = ratingStarsMax.length - selected;
+        star.classList.toggle("checked", index >= threshold);
+    });
+
+    tagElement.forEach(tag => {
+        const value = tag.textContent.trim().toLowerCase();
+        tag.classList.toggle("checked", filterState.tags.includes(value));
+    });
+
+    filterUserInput.value = filterState.search;
+   
+}
+
+//apply filters to challenges
     function applyFilters() {
         let filtered = allChallengesData;
 
@@ -162,14 +180,16 @@ function initializeFilters() {
             });
         }
 
+        //renders filtered challenges and updates UI
         renderFilteredChallenges(filtered);
+        updateUIWithState();
 
         console.log('Search-filter:', filterState.search)
         console.log(filterState);
     }
 
 };
-
+    
 //Gör initializeFilters tillgänglig globalt så att main.js kommer åt denna
 window.initializeFilters = initializeFilters;
 
