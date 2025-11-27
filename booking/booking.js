@@ -42,7 +42,7 @@ function initialiseBookingModal(ch) {
     
     if (backtoChallenges_button) {
         backtoChallenges_button.addEventListener('click', () => {
-            window.location.href = "/all.html";
+            window.location.href = "all.html";
         });
     }
 };
