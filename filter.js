@@ -18,18 +18,8 @@ function initializeFilters() {
     const ratingStarsMax = document.querySelectorAll(".rating__stars--max .fa-star");
     const filterUserInput = document.querySelector(".filter__user-input");
     let allChallengesData = []; //Spara api-data
-    let filterState = {
-        search: "",
-        online: false,
-        onSite: false,
-        tags: [],
-        minRating: 0,
-        maxRating: 5
-    };
-    
 
-    
-getChallenges().then(data => {
+   getChallenges().then(data => {
     allChallengesData = data;
 
     function extractUniqueTags(challenges) {
@@ -69,6 +59,7 @@ getChallenges().then(data => {
                     div.classList.add("checked");
                 }
                 applyFilters();
+                updateUIWithState();
                 console.log("Valda taggar:", filterState.tags);
             });
 
@@ -77,12 +68,6 @@ getChallenges().then(data => {
     }
 
 });
-
-    
-
-        updateUIWithState();
-        applyFilters();
-    });
 
 //event listeners for each filter type
  ratingStarsMin.forEach((star, index) => {
@@ -114,6 +99,7 @@ ratingStarsMax.forEach((star, index) => {
         filterState.search = e.target.value.toLowerCase();
         applyFilters();
 
+    });
 
     function renderFilteredChallenges(challenges) {
         const list = document.getElementById("all-list");
