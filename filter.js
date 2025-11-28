@@ -67,6 +67,9 @@ function initializeFilters() {
         });
     }
 
+   //quick fix to show selected filters directly after reopening filter
+    applyFilters();
+    updateUIWithState();
 });
 
 //event listeners for each filter type
