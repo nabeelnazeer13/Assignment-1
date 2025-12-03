@@ -441,7 +441,13 @@
 .challenges__listItem {
   list-style-type: none;
 }
-.challenges__buttons {
+.challenges__list .challenges__listItem {
+  transition: box-shadow 0.3s ease;
+}
+.challenges__list .challenges__listItem:hover .challenge {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+.challenges__list__buttons {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -449,7 +455,7 @@
   margin: 2rem 0;
 }
 @media screen and (min-width: 700px) {
-  .challenges__buttons {
+  .challenges__list {
     flex-direction: row-reverse;
   }
 }
