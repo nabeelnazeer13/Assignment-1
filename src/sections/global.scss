@@ -26,7 +26,7 @@
     @include hover-effect($esc-darkblue, $esc-textlight);
   }
 
-  &--gray{
-     @include hover-effect($esc-beige, $esc-textdark);
+  &--dark-blue{
+     @include hover-effect($esc-bgblue, $esc-darkblue);
   }
 }
