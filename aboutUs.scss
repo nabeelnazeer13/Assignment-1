@@ -1,7 +1,54 @@
+
+
 .aboutUs {
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+&__image {
+        height: auto;
+        width: 100%;
+    }
+
+&__text {
+    padding: 5rem 3rem;
+}
+
+
+&__h1 {
+    font-size: 2rem;
+    }
+
+&__p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    }
+
 }
 
 .findUs {
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #011827; //change to $esc-textdark
+    text-align: center;
+    color: white;
+
+    &__text {
+        padding: 4rem 3.5rem;
+        
+    }
+
+    &__h2 {
+        font-size: 2rem;
+        
+    }
+
+
+
+
 }

@@ -1,7 +1,37 @@
 .aboutUs {
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.aboutUs__image {
+  height: auto;
+  width: 100%;
+}
+.aboutUs__text {
+  padding: 5rem 3rem;
+}
+.aboutUs__h1 {
+  font-size: 2rem;
+}
+.aboutUs__p {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .findUs {
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #011827;
+  text-align: center;
+  color: white;
+}
+.findUs__text {
+  padding: 4rem 3.5rem;
+}
+.findUs__h2 {
+  font-size: 2rem;
 }/*# sourceMappingURL=aboutUs.css.map */

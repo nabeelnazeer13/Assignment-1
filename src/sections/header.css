@@ -25,7 +25,6 @@
   }
 }
 .header__main {
-  padding-left: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -114,6 +113,11 @@
   justify-content: center;
   flex-direction: column;
 }
+.header__navcontainernav a:hover {
+  background-color: #011827;
+  color: #36769D;
+  transition: 0.3s ease;
+}
 @media screen and (min-width: 700px) {
   .header__navcontainernav {
     height: 108px;
@@ -147,9 +151,12 @@
     font-weight: 500;
     letter-spacing: 0.04em;
     text-decoration: none;
-  }
-  .header__navcontainernav ul li a:hover, .header__navcontainernav ul li a:focus {
-    color: #36769D;
+    /*     &:hover,
+         &:focus {
+             background-color: transparent;
+             color: $esc-darkblue;
+
+         }*/
   }
 }
 .header__navcontainernavclose {
