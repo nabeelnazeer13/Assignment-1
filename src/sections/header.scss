@@ -2,10 +2,11 @@
 
 .header {
     background-color: $esc-bgblue;
-    
+
     @include desktop {
         display: block;
     }
+
     &__main {
         //padding-left: 10px;
         padding-top: 20px;
@@ -13,43 +14,48 @@
         display: flex;
         flex-direction: row;
         justify-content: stretch;
-        align-items: flex-start; 
+        align-items: flex-start;
         width: 100%;
-        
+
         @include desktop {
             grid-row: 1;
             height: auto;
             display: grid;
             grid-template-columns: 15% 90%;
             gap: 0px;
-            padding: 15px 0 0 0 ;
+            padding: 15px 0 0 0;
             margin: 0px 10px 10px 30px;
-            
+
             align-items: end;
         }
+
         &logo {
             width: 40%;
-            
+
             height: 79px;
             min-height: 79px;
-            object-fit: contain;    
+            object-fit: contain;
+
             @include desktop {
-            width: 128px;
-            height: 82px;  
-            img {
-                height: 100%;
-                min-height: 80px;
+                width: 128px;
+                height: 82px;
+
+                img {
+                    height: 100%;
+                    min-height: 80px;
+                }
             }
-            }  
         }
+
         &title {
-            width:30%;
+            width: 30%;
             padding-left: 10px;
             margin-top: 0;
             margin-bottom: 0px;
             color: $esc-textlight;
-            font-size: 1.4rem; 
+            font-size: 1.4rem;
             max-width: 100px;
+
             @include desktop {
                 font-size: 42px;
                 padding-left: 10px;
@@ -57,58 +63,68 @@
                 margin-bottom: -5px;
                 max-width: none;
                 width: auto;
-            }         
+            }
         }
+
         &mobilenavmenu {
             background-color: $esc-bgblue;
             color: $esc-textlight;
-            font-size: 3rem;    
-            padding-left: 50px;   
+            font-size: 3rem;
+            padding-left: 50px;
             text-align: right;
             border: 0;
             margin-left: 50px;
             margin-bottom: 10px;
+
             @include desktop {
-                display:none;
+                display: none;
             }
         }
     }
+
     &__navcontainer {
         display: none;
-        @include desktop {
-            }
+
         &nav {
             background-color: $esc-bgblue;
-            position:fixed;
-            top:1rem;
-            right:1rem;
-            left:1rem; 
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            left: 1rem;
             bottom: 2rem;
             opacity: 100;
             z-index: 3;
             display: flex;
-            animation: navfadeandscale .35s cubic-bezier(.53,.52,.04,1.06) 0s 1 both;
+            animation: navfadeandscale .35s cubic-bezier(.53, .52, .04, 1.06) 0s 1 both;
             justify-content: center;
             flex-direction: column;
-            @include desktop { 
+
+            a {
+                @include hover-effect( $esc-bgblue, $esc-darkblue); // hover-effect on nav mobileview 
+            }
+
+            @include desktop {
                 height: 108px;
                 position: static;
                 display: flex;
                 justify-content: center;
-                align-items: center;  
+                align-items: center;
                 animation: none;
                 z-index: 0;
                 width: 100%;
-                ul {   
+
+                ul {
                     display: grid;
                     gap: 35px;
                     grid-template-columns: 1fr 1fr 1fr 1fr;
                     margin: 0 0;
                     width: 80%;
+
                     li {
                         display: flex;
                         margin: 0 20px 0 20px;
                         width: 100%;
+
                         a {
                             font-size: 1.11rem;
                             padding: 7px 2px;
@@ -119,36 +135,43 @@
                             font-weight: 500;
                             letter-spacing: 0.04em;
                             text-decoration: none;
-                            &:hover, &:focus { 
-                            color: $esc-darkblue;
+
+                       /*     &:hover,
+                            &:focus {
+                                background-color: transparent;
+                                color: $esc-darkblue;
+
+                            }*/
+                        }
+                    }
+                }
             }
-          }
-        }
-      }
-    }
-            
+
             &close {
                 position: absolute;
-                top:1rem;
+                top: 1rem;
                 right: 1rem;
                 font-size: 2rem;
                 background-color: $esc-bgblue;
                 border: 0;
                 color: $esc-textlight;
+
                 @include desktop {
                     display: none;
                 }
             }
+
             &list {
                 list-style: none;
                 display: flex;
                 padding: 0;
-                margin-top: 0; 
+                margin-top: 0;
                 padding-bottom: 2rem;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
             }
+
             &Item {
                 padding-top: 1rem;
                 font-size: 2rem;
@@ -156,27 +179,30 @@
                 text-decoration: none;
                 color: $esc-textlight;
             }
-            &Item a{
+
+            &Item a {
                 text-decoration: none;
                 color: $esc-textlight;
             }
         }
+
         &.mobileactive {
             position: fixed;
             top: 0;
-            bottom:0;
+            bottom: 0;
             height: 100vh;
             width: 100vh;
             display: flex;
             z-index: 2;
-            background-color: rgb(255, 255, 255,.5);
-            animation: fade .1s linear 0s 1 both;                    
-            }
-            @include desktop {
-                display: flex;
-                grid-row: 2;
-                animation:none;
-            }
+            background-color: rgb(255, 255, 255, .5);
+            animation: fade .1s linear 0s 1 both;
         }
-    
+
+        @include desktop {
+            display: flex;
+            grid-row: 2;
+            animation: none;
+        }
     }
+
+}
