@@ -51,6 +51,10 @@ function initialiseBookingModal(ch) {
 //calls fetch function
 //call modal form step change function
 function create_fetch_url () {
+    const errorEl = document.querySelector('#booking-step1-error');
+    if (errorEl) {
+        errorEl.textContent = '';
+    }
     if (!date_booking.value) {
         alert("please enter correct date");
     }
