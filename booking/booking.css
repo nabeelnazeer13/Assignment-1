@@ -23,6 +23,18 @@
   box-sizing: border-box;
 }
 
+
+.booking-close-btn {
+  position: absolute;
+  top: 70px;
+  right: 260px;
+ background-color: transparent;
+ border:none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index:999;
+}
+
 .booking-step {
   background: #ffffff;
   border: 2px solid #b78cff;
