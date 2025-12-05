@@ -56,7 +56,10 @@ function create_fetch_url () {
         errorEl.textContent = '';
     }
     if (!date_booking.value) {
-        alert("please enter correct date");
+        if (errorEl) {
+            errorEl.textContent = 'Please select a date.';
+        }
+        return;
     }
     else {
         const date_url = date_booking.value;
