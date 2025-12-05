@@ -113,6 +113,11 @@
   justify-content: center;
   flex-direction: column;
 }
+.header__navcontainernav a:hover {
+  background-color: #011827;
+  color: #36769D;
+  transition: 0.3s ease;
+}
 @media screen and (min-width: 700px) {
   .header__navcontainernav {
     height: 108px;
@@ -146,9 +151,12 @@
     font-weight: 500;
     letter-spacing: 0.04em;
     text-decoration: none;
-  }
-  .header__navcontainernav ul li a:hover, .header__navcontainernav ul li a:focus {
-    color: #36769D;
+    /*     &:hover,
+         &:focus {
+             background-color: transparent;
+             color: $esc-darkblue;
+
+         }*/
   }
 }
 .header__navcontainernavclose {
@@ -454,7 +462,13 @@
 .challenges__listItem {
   list-style-type: none;
 }
-.challenges__buttons {
+.challenges__list .challenges__listItem {
+  transition: box-shadow 0.3s ease;
+}
+.challenges__list .challenges__listItem:hover .challenge {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+.challenges__list__buttons {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -462,7 +476,7 @@
   margin: 2rem 0;
 }
 @media screen and (min-width: 700px) {
-  .challenges__buttons {
+  .challenges__list {
     flex-direction: row-reverse;
   }
 }
@@ -727,6 +741,11 @@
   color: white;
   box-shadow: none;
 }
+.tags .tag:hover:hover {
+  background-color: #36769D;
+  color: #fff;
+  transition: 0.3s ease;
+}
 
 .search-bar input {
   width: 20rem;
@@ -749,6 +768,57 @@
 .filterBtn {
   font-size: 1.1rem;
   margin-bottom: 3rem;
+}
+
+.button {
+  background-color: #011827;
+  border-radius: 0.4rem;
+  border-width: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0.8em 2.4em;
+  text-decoration: none;
+}
+.button:hover {
+  background-color: #8ACFE5;
+  color: #011827;
+  transition: 0.3s ease;
+}
+.button--red:hover {
+  background-color: #76211b;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.button--blue:hover {
+  background-color: #36769D;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.link {
+  color: #36769D;
+  text-decoration: none;
+}
+.link:hover {
+  background-color: #8ACFE5;
+  color: #011827;
+  transition: 0.3s ease;
+}
+.link--red:hover {
+  background-color: #76211b;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.link--blue:hover {
+  background-color: #36769D;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.link--dark-blue:hover {
+  background-color: #011827;
+  color: #36769D;
+  transition: 0.3s ease;
 }
 
 html, body {

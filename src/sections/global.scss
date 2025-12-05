@@ -1,0 +1,32 @@
+@use '../lib/variables_mixins.scss' as *;
+
+.button {
+  @include button($esc-bgblue, $esc-textlight);
+  @include hover-effect($esc-light-blue, $esc-textdark); // standardhover
+
+  &--red {
+    @include hover-effect($esc-hover-red, $esc-textlight);
+  }
+
+  &--blue {
+    @include hover-effect($esc-darkblue, $esc-textlight);
+  }
+}
+
+.link{
+  color: $esc-darkblue;
+  text-decoration: none;
+  @include hover-effect($esc-light-blue, $esc-textdark);
+
+  &--red {
+    @include hover-effect($esc-hover-red, $esc-textlight);
+  }
+
+  &--blue {
+    @include hover-effect($esc-darkblue, $esc-textlight);
+  }
+
+  &--dark-blue{
+     @include hover-effect($esc-bgblue, $esc-darkblue);
+  }
+}

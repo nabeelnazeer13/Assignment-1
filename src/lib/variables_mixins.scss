@@ -8,6 +8,9 @@ $esc-darkblue: #36769D;
 $esc-textdark: #011827;
 $esc-textlight: #fff;
 
+//HOVER
+$esc-hover-red: #76211b;
+
 //KEYFRAMES
 
 @keyframes fade {
@@ -52,4 +55,12 @@ $esc-textlight: #fff;
   font-weight: bold;
   padding: 0.8em 2.4em;
   text-decoration: none;
+}
+
+@mixin hover-effect($hover-bg, $hover-fg){
+    &:hover {
+        background-color: $hover-bg;
+        color: $hover-fg;
+        transition: 0.3s ease;
+    }
 }

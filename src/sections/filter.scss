@@ -143,6 +143,9 @@
         box-shadow: none;
 
     }
+    .tag:hover{
+        @include hover-effect($esc-darkblue, $esc-textlight);
+    }
 
 }
 
