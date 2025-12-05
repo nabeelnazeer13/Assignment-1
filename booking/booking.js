@@ -109,7 +109,11 @@ function populateslots() {
     slotoption.textContent = slot;
     time_booking.appendChild(slotoption);
     });
-    
+    participants_booking_label.textContent = `Enter number of participants`;
+    participants_booking.placeholder = ` ${challenge_selected.minParticipants} - ${challenge_selected.maxParticipants} participants`
+    participants_booking.min = challenge_selected.minParticipants;
+    participants_booking.max = challenge_selected.maxParticipants;
+    validateparticipantinput();
     /*
     let i=0;
     for (i=challenge_selected.minParticipants;i<=challenge_selected.maxParticipants;i++) {
@@ -120,6 +124,8 @@ function populateslots() {
     }*/
 
 }
+
+
 
 //function to validate input and create object to send to backend for reservation
 function capturebookinginfo () {
