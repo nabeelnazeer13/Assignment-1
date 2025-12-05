@@ -818,11 +818,10 @@
     justify-content: flex-start;
   }
 }
-.contact__title {
-  font-size: 1.9rem;
+.contact__title, .contact__subtitle {
   margin: 1.5rem 1rem;
 }
-.contact__description {
+.contact__description, .contact__adress {
   font-size: 1.3rem;
   margin: 1rem 1rem;
   max-width: 1100px;
