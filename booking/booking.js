@@ -44,7 +44,7 @@ function initialiseBookingModal(ch) {
     if (challenge_title1) challenge_title1.textContent = challenge_selected.title;
     if (challenge_title2) challenge_title2.textContent = challenge_selected.title;
     if (searchslots_button) searchslots_button.addEventListener('click', create_fetch_url);
-    if (makebooking_button) makebooking_button.addEventListener('click', capturebookinginfo);
+    if (makebooking_button) makebooking_button.addEventListener('click', validate_booking_input);
     
     if (backtoChallenges_button) {
         backtoChallenges_button.addEventListener('click', () => {
@@ -152,7 +152,7 @@ function validate_participant_input() {
 }
 
 //function to validate input and create object to send to backend for reservation
-function capturebookinginfo () {
+function validate_booking_input () {
    
     if (!name_booking.value) {
         alert("please enter name");
@@ -173,6 +173,10 @@ function capturebookinginfo () {
                 return;
         }
                 else { 
+                    capture_booking_info();
+                }}}}}
+
+function capture_booking_info() {
                     final_booking_object.challenge = challenge_selected.id;
                     final_booking_object.name = name_booking.value;
                     final_booking_object.email = email_booking.value;
@@ -184,8 +188,8 @@ function capturebookinginfo () {
                     .then((Response) => {
                         change_modal_step();});
                     }
-                }
-                }}
+                
+                
 
 //POST inputted object to backend
 //Reservation success or failure
@@ -206,4 +210,4 @@ async function post_booking () {
         console.error("Error booking reservation:", error);
         alert("Booking failed. Please try again.");
     }
-}}
+}
