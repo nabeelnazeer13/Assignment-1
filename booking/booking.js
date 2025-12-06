@@ -4,6 +4,8 @@ let name_booking;
 let email_booking;
 let time_booking;
 let participants_booking;
+let participants_booking_label;
+let participants_booking_error;
 let challenge_title1;
 let challenge_title2;
 let step_1;
@@ -25,8 +27,11 @@ function initialiseBookingModal(ch) {
     name_booking = document.querySelector('#booking-name-input');
     email_booking = document.querySelector('#booking-email-input');
     time_booking = document.querySelector('#booking-time-select');
-    participants_booking = document.querySelector('#booking-participants-select');
-    challenge_title1 = document.querySelector('#booking-room-title-step1');
+    //participants_booking = document.querySelector('#booking-participants-select')
+    participants_booking = document.querySelector('#booking-input-participants');
+    participants_booking_label = document.querySelector('#booking-label-participants');
+    participants_booking_error = document.querySelector('#booking-error-participants');
+    booking_input_participantschallenge_title1 = document.querySelector('#booking-room-title-step1'); //changed name from booking-input-participantschallenge_title1
     challenge_title2 = document.querySelector('#booking-room-title-step2');
     step_1 = document.querySelector('#booking-step-1');
     step_2 = document.querySelector('#booking-step-2');
@@ -35,17 +40,23 @@ function initialiseBookingModal(ch) {
     makebooking_button = document.querySelector('#booking-step2-next');
     backtoChallenges_button = document.querySelector("#booking-close");
 
+
     if (challenge_title1) challenge_title1.textContent = challenge_selected.title;
     if (challenge_title2) challenge_title2.textContent = challenge_selected.title;
     if (searchslots_button) searchslots_button.addEventListener('click', create_fetch_url);
-    if (makebooking_button) makebooking_button.addEventListener('click', capturebookinginfo);
+    if (makebooking_button) makebooking_button.addEventListener('click', validate_booking_input);
     
     if (backtoChallenges_button) {
         backtoChallenges_button.addEventListener('click', () => {
             window.location.href = "all.html";
         });
     }
-};
+    if (participants_booking) {
+        participants_booking.addEventListener('focus', () => {
+        participants_booking.addEventListener('input', validate_participant_input);
+    });
+}
+}
 
 //validate input and create url to fetch available slots
 //calls fetch function
@@ -87,7 +98,7 @@ async function fetch_slots(url) {
         if (!res.ok) throw new Error("API error");
         const data = await res.json();
         slots = data.slots;
-        populateslots();
+        populate_slots();
     } catch (error) {
         console.error("Error fetching slots:", error);
         alert("Failed to load available slots. Please try again.");
@@ -96,24 +107,60 @@ async function fetch_slots(url) {
 
 
 //function to show slots fetched from API to input box
-function populateslots() {
+function populate_slots() {
     slots.forEach(slot => {
     const slotoption = document.createElement('option');
     slotoption.value = slot;
     slotoption.textContent = slot;
     time_booking.appendChild(slotoption);
     });
+    participants_booking_label.textContent = `Enter number of participants`;
+    participants_booking.placeholder = ` ${challenge_selected.minParticipants} - ${challenge_selected.maxParticipants} participants`
+    participants_booking.min = challenge_selected.minParticipants;
+    participants_booking.max = challenge_selected.maxParticipants;
+    /*
     let i=0;
     for (i=challenge_selected.minParticipants;i<=challenge_selected.maxParticipants;i++) {
         const partoption = document.createElement('option');
         partoption.textContent = i+" participants";
         partoption.value = i;
         participants_booking.appendChild(partoption);
+    }*/
+
+}
+
+function validate_participant_input() {
+    const participant_value = participants_booking.value.trim();
+    const participant_input = Number(participant_value);//changed from parseINT to accomodate decimal checks
+
+    participants_booking_error.textContent = "";
+    participants_booking.classList.remove('booking-input-invalid');
+
+    if (
+        !participant_value ||
+        isNaN(participant_input) ||
+        participant_input < challenge_selected.minParticipants ||
+        participant_input > challenge_selected.maxParticipants   
+     ) {
+        if (!Number.isInteger(participant_value)) {
+            participants_booking_error.textContent =
+            `People cannot be fractions. Please enter between ${challenge_selected.minParticipants} and ${challenge_selected.maxParticipants} participants`;
+        participants_booking.classList.add('booking-input-invalid');
+        return false;
     }
+        else {
+            participants_booking_error.textContent =
+            `Please enter between ${challenge_selected.minParticipants} and ${challenge_selected.maxParticipants} participants`;
+            participants_booking.classList.add('booking-input-invalid');
+            return false;
+        }
+    }
+
+    return true;
 }
 
 //function to validate input and create object to send to backend for reservation
-function capturebookinginfo () {
+function validate_booking_input () {
    
     if (!name_booking.value) {
         alert("please enter name");
@@ -126,20 +173,31 @@ function capturebookinginfo () {
             if (!time_booking.value) {
                 alert("choose a slot please");
             }
-            else { 
-                final_booking_object.challenge = challenge_selected.id;
-                final_booking_object.name = name_booking.value;
-                final_booking_object.email = email_booking.value;
-                final_booking_object.date = date_booking.value;
-                final_booking_object.time = time_booking.value;
-                final_booking_object.participants = Number(participants_booking.value);
-                console.log(final_booking_object);//testing
-                post_booking ()
-                .then((Response) => {
-                    change_modal_step();});
-                }
-            }
-            }}
+            else {
+             // final participants validation
+            const participantsValid = validate_participant_input();
+            if (!participantsValid) {
+                
+                return;
+        }
+                else { 
+                    capture_booking_info();
+                }}}}}
+
+function capture_booking_info() {
+                    final_booking_object.challenge = challenge_selected.id;
+                    final_booking_object.name = name_booking.value;
+                    final_booking_object.email = email_booking.value;
+                    final_booking_object.date = date_booking.value;
+                    final_booking_object.time = time_booking.value;
+                    final_booking_object.participants = Number(participants_booking.value);
+                    console.log(final_booking_object);//testing
+                    post_booking ()
+                    .then((Response) => {
+                        change_modal_step();});
+                    }
+                
+                
 
 //POST inputted object to backend
 //Reservation success or failure

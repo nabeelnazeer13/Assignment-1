@@ -71,12 +71,32 @@
   background: #fff;
 }
 
+.booking-input-invalid {
+  border-color: #dc3545;
+  background-color: #ffe6e6;
+}
+
+#booking-input-participants {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.booking-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
 .booking-group {
   margin-bottom: 16px;
 }
 
 .booking-group-row {
-  display: flex;
+  display: block;
   gap: 12px;
 }
 
