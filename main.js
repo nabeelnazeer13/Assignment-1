@@ -240,9 +240,8 @@ async function loadBookingModal(challenge) {
         alert('Could not open booking modal, try again later!');
 }
 }
-/*CLOSE MODAL
+/*
 modal.querySelector('.booking-overlay').addEventListener('click', () => modal.remove());
-const closeBtn = modal.querySelector('#booking-close');
+const closeBtn = modal.querySelector('#booking-close-btn');
 if(closeBtn) closeBtn.addEventListener('click', () => modal.remove());
-}
 */
