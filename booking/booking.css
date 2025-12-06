@@ -13,37 +13,46 @@
 }
 
 .booking-modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1010;
+ position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  display: grid;            /* robust centring */
+  place-items: center;      /* centrerar både horisontellt och vertikalt */
   padding: 16px;
   box-sizing: border-box;
+  z-index: 1010;
 }
 
-
-.booking-close-btn {
-  position: absolute;
-  top: 70px;
-  right: 260px;
- background-color: transparent;
- border:none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index:999;
-}
-
-.booking-step {
-  background: #ffffff;
+.booking-window{
+  position: relative;
+  background: #fff;
   border: 2px solid #b78cff;
   max-width: 520px;
   width: 100%;
   padding: 32px 32px 24px;
+    margin: 0;
   box-sizing: border-box;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  display: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.booking-close-btn {
+  position: absolute;
+  top: 12px;                     /* small, consistent offset */
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1;  
+}
+
+
+.booking-step {
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  display:none;
 }
 
 .booking-step-active {
