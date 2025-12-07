@@ -837,3 +837,22 @@ img {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+@keyframes challenge-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+}
+
+
+.challenges__listItem {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: challenge-fade-down 3300ms ease-out forwards;
+}
