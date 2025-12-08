@@ -63,7 +63,7 @@
 
     @include small-desktop {
         float: left;
-        width: 33.33%;
+        width: 50%;
     }
 
     &__title {
@@ -84,7 +84,7 @@
 
     @include small-desktop {
         float: left;
-        width: 33.33%;
+        width: 50%;
     }
 
     &__box {
@@ -127,8 +127,7 @@
 
     @include small-desktop {
         float: left;
-        width: 33.33%;
-
+        width: 100%;
     }
 
     .tag {
@@ -145,6 +144,7 @@
         color: grey;
         box-shadow: inset 0 0 0 2px grey;
     }
+
 
     .tag.checked {
         background-color: grey;
