@@ -18,7 +18,7 @@
   }
 }
 .header {
-  background-color: #011827;
+  background-color: #021928;
 }
 @media screen and (min-width: 700px) {
   .header {
@@ -82,7 +82,7 @@
   }
 }
 .header__mainmobilenavmenu {
-  background-color: #011827;
+  background-color: #021928;
   color: #fff;
   font-size: 3rem;
   padding-left: 50px;
@@ -100,7 +100,7 @@
   display: none;
 }
 .header__navcontainernav {
-  background-color: #011827;
+  background-color: #021928;
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -164,7 +164,7 @@
   top: 1rem;
   right: 1rem;
   font-size: 2rem;
-  background-color: #011827;
+  background-color: #021928;
   border: 0;
   color: #fff;
 }
@@ -246,7 +246,7 @@
   text-decoration: none;
 }
 .hero__buttons__online {
-  color: #011827;
+  color: #021928;
   font-weight: bold;
 }
 @media screen and (min-width: 700px) {
@@ -317,7 +317,7 @@
 
 .story {
   align-items: center;
-  background-color: #011827;
+  background-color: #021928;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -391,7 +391,7 @@
 }
 
 .footer {
-  background-color: #011827;
+  background-color: #021928;
   color: #fff;
   padding: 3rem 2rem;
   font-size: 1.3rem;
@@ -484,7 +484,7 @@
   background-color: #8ACFE5;
   border-radius: 0.4rem;
   border-width: 0;
-  color: #011827;
+  color: #021928;
   font-size: 1.6rem;
   font-weight: bold;
   padding: 0.8em 2.4em;
