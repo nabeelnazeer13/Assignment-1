@@ -232,8 +232,10 @@ async function loadBookingModal(challenge) {
         if (modal) document.body.appendChild(modal); // lägg till i all.html
 
         requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
         overlay?.classList.add('is-visible');
         modal?.classList.add('is-visible');
+          });
         });
         
         initialiseBookingModal(challenge);
