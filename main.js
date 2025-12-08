@@ -131,9 +131,12 @@ async function initMain() {
 
 const listElAll = document.querySelector('#all-list');
 const statusElAll = document.querySelector('#all-status');
+const loadingAnimation = document.querySelector('.loading');
 
 async function initAll() {
     try {
+        
+        loadingAnimation.classList.remove('hidden');
         statusElAll.textContent = 'Loading challenges...';
 
         const all = await getChallenges();
@@ -145,9 +148,10 @@ async function initAll() {
             listElAll.appendChild(createChallengeLi(ch));
         });
 
-
+        loadingAnimation.classList.add('hidden');
         statusElAll.textContent = '';
     } catch (e) {
+        loadingAnimation.classList.add('hidden');
         statusElAll.textContent = 'Could not load data: ' + e.message;
         console.error(e);
     }
