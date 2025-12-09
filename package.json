@@ -23,6 +23,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "sass": "^1.94.0"
+    "sass": "^1.94.2"
   }
 }

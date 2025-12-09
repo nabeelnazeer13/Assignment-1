@@ -1,12 +1,17 @@
 //VARIABLES
 
-$esc-bgblue: #011827;
+//$esc-bgblue: #011827;
+$esc-bgblue: #021928;
 $esc-light-blue: #8ACFE5;
 $esc-beige: #B6BDB5;
 $esc-red: #E3170A;
 $esc-darkblue: #36769D;
-$esc-textdark: #011827;
+//$esc-textdark: #011827;
+$esc-textdark: #021928;
 $esc-textlight: #fff;
+
+//HOVER
+$esc-hover-red: #76211b;
 
 //KEYFRAMES
 
@@ -52,4 +57,12 @@ $esc-textlight: #fff;
   font-weight: bold;
   padding: 0.8em 2.4em;
   text-decoration: none;
+}
+
+@mixin hover-effect($hover-bg, $hover-fg){
+    &:hover {
+        background-color: $hover-bg;
+        color: $hover-fg;
+        transition: 0.3s ease;
+    }
 }
