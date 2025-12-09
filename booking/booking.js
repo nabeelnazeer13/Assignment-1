@@ -21,10 +21,11 @@ let slots = [];
 // assign DOM elements and event listeners
 //back to challenges
 function initialiseBookingModal(ch) {
-    challenge_selected = ch; 
+    challenge_selected = ch;
     final_booking_object = {};
     date_booking = document.querySelector('#booking-date-input');
     name_booking = document.querySelector('#booking-name-input');
+    phone_booking = document.querySelector('#booking-phone-input');
     email_booking = document.querySelector('#booking-email-input');
     time_booking = document.querySelector('#booking-time-select');
     //participants_booking = document.querySelector('#booking-participants-select')
@@ -61,7 +62,7 @@ function initialiseBookingModal(ch) {
 //validate input and create url to fetch available slots
 //calls fetch function
 //call modal form step change function
-function create_fetch_url () {
+function create_fetch_url() {
     if (!date_booking.value) {
         alert("please enter correct date");
     }
@@ -70,9 +71,11 @@ function create_fetch_url () {
         const res_url = `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${date_url}&challenge=${challenge_selected.id}`;
         console.log(res_url); //for testing
         fetch_slots(res_url)
-        .then((Response) => {
-        change_modal_step();});
-}}
+            .then((Response) => {
+                change_modal_step();
+            });
+    }
+}
 
 //navigate through modal functions
 function change_modal_step() {
@@ -109,10 +112,10 @@ async function fetch_slots(url) {
 //function to show slots fetched from API to input box
 function populate_slots() {
     slots.forEach(slot => {
-    const slotoption = document.createElement('option');
-    slotoption.value = slot;
-    slotoption.textContent = slot;
-    time_booking.appendChild(slotoption);
+        const slotoption = document.createElement('option');
+        slotoption.value = slot;
+        slotoption.textContent = slot;
+        time_booking.appendChild(slotoption);
     });
     participants_booking_label.textContent = `Enter number of participants`;
     participants_booking.placeholder = ` ${challenge_selected.minParticipants} - ${challenge_selected.maxParticipants} participants`
@@ -122,7 +125,7 @@ function populate_slots() {
     let i=0;
     for (i=challenge_selected.minParticipants;i<=challenge_selected.maxParticipants;i++) {
         const partoption = document.createElement('option');
-        partoption.textContent = i+" participants";
+        partoption.textContent = i + " participants";
         partoption.value = i;
         participants_booking.appendChild(partoption);
     }*/
@@ -166,15 +169,19 @@ function validate_booking_input () {
         alert("please enter name");
     }
     else {
-        if (!email_booking.value) {
-            alert("please enter valid email");
+        if (!phone_booking.value) {
+            alert("please enter valid phone number");
         }
         else {
-            if (!time_booking.value) {
-                alert("choose a slot please");
+            if (!email_booking.value) {
+                alert("please enter valid email");
             }
             else {
-             // final participants validation
+                if (!time_booking.value) {
+                    alert("choose a slot please");
+                }
+                else {
+        // final participants validation
             const participantsValid = validate_participant_input();
             if (!participantsValid) {
                 
@@ -192,30 +199,31 @@ function capture_booking_info() {
                     final_booking_object.time = time_booking.value;
                     final_booking_object.participants = Number(participants_booking.value);
                     console.log(final_booking_object);//testing
-                    post_booking ()
-                    .then((Response) => {
-                        change_modal_step();});
-                    }
-                
-                
+                    post_booking()
+                        .then((Response) => {
+                            change_modal_step();
+                        });
+                }
 
-//POST inputted object to backend
-//Reservation success or failure
-async function post_booking () {
-    try {
-        const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/reservations', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(final_booking_object),
-        });
-        if (!res.ok) throw new Error("Reservation failed! Status: " + res.status);
-        const data = await res.json();
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.error("Error booking reservation:", error);
-        alert("Booking failed. Please try again.");
+                
+    //POST inputted object to backend
+    //Reservation success or failure
+    async function post_booking() {
+        try {
+            const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/booking/reservations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(final_booking_object),
+            });
+            if (!res.ok) throw new Error("Reservation failed! Status: " + res.status);
+            const data = await res.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error("Error booking reservation:", error);
+            alert("Booking failed. Please try again.");
+        }
     }
 }
