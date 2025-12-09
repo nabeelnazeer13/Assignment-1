@@ -164,6 +164,37 @@ if (listElAll && statusElAll) {
     initAll();
 }
 
+//Max 50 characters in challenge description
+export function truncateDescription(description, maxLength = 50) {
+    if (description.length <= maxLength) {
+        return description;
+    }
+    return description.slice(0, maxLength) + '...';
+}   
+
+/*console.log(truncateDescription
+("This is a long description used only for testing the truncation function.", 50));*/
+
+//Tests for truncateDescription function
+
+/*import { truncateDescription } from "./truncateDescription";
+
+test("should truncate long descriptions", () => {
+    const result = truncateDescription(
+        "This is a very long description that will be truncated",
+        30
+    );
+    expect(result).toBe("This is a very long description...");
+});
+
+test("should not truncate short descriptions", () => {
+    const result = truncateDescription("Short text", 50);
+    expect(result).toBe("Short text");
+});
+*/
+
+
+
 //FILTER function to load in the HTML from filter.html
 async function loadFilterChallenges() {
     try {
