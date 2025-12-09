@@ -1,6 +1,12 @@
 @use '../lib/variables_mixins.scss' as *;
 
 
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .filters {
     display: none;
     flex-direction: column;
@@ -136,6 +142,9 @@
         color: white;
         box-shadow: none;
 
+    }
+    .tag:hover{
+        @include hover-effect($esc-darkblue, $esc-textlight);
     }
 
 }
