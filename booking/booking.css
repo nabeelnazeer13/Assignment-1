@@ -160,3 +160,7 @@
   background-color: #5b3fd9;
   color: #ffffff;
 }
+
+.booking-error {
+  color: red;
+}

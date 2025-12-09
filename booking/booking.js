@@ -67,22 +67,55 @@ function initialiseBookingModal(ch) {
     }
 }
 
+function validate_date () {
+    const selectedDate = new Date(date_booking.value);
+    const today = new Date();
+    // normalize to midnight for comparison
+    today.setHours(0, 0, 0, 0);
+    selectedDate.setHours(0, 0, 0, 0);
+    const errorEl = document.querySelector('#booking-step1-error');
+    if (errorEl) {
+        errorEl.textContent = '';
+    }
+    if (!date_booking.value) { //check if no date is entered
+        if (errorEl) {
+            errorEl.textContent = 'Please select a date.';
+        }
+        return false;
+    }
+    if (selectedDate < today) { //check if date is in past
+        if (errorEl) {
+            errorEl.textContent = 'Please choose a date in the future.';
+        }
+        return false;
+    }
+    else {
+        return true;
+}}
+
 //validate input and create url to fetch available slots
 //calls fetch function
 //call modal form step change function
-function create_fetch_url() {
-    if (!date_booking.value) {
-        alert("please enter correct date");
-    }
-    else {
+function create_fetch_url () {
+        if (!validate_date ()) { return;} 
         const date_url = date_booking.value;
         const res_url = `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${date_url}&challenge=${challenge_selected.id}`;
         console.log(res_url); //for testing
         fetch_slots(res_url)
-            .then((Response) => {
-                change_modal_step();
-            });
-    }
+        .then((Response) => {
+         const errorEl = document.querySelector('#booking-step1-error');
+
+            if (!slots || slots.length === 0) {//check if time slots are available for selected challenge and date
+                if (errorEl) {
+                    errorEl.textContent = 'No available times for this date. Please choose another date.';
+                }
+                return; // 
+            }
+        if (errorEl) {
+                errorEl.textContent = '';
+            }
+            change_modal_step();
+        });
 }
 
 //navigate through modal functions
@@ -104,6 +137,9 @@ function change_modal_step() {
 
 //function to fetch available slots using API
 async function fetch_slots(url) {
+    const errorEl = document.querySelector('#booking-step1-error');
+    if (errorEl) {
+        errorEl.textContent = '';
     try {
         const res = await fetch(url);
         if (!res.ok) throw new Error("API error");
@@ -112,9 +148,10 @@ async function fetch_slots(url) {
         populate_slots();
     } catch (error) {
         console.error("Error fetching slots:", error);
-        alert("Failed to load available slots. Please try again.");
+        errorEl.textContent = "Failed to load available slots. Please try again.";
+        return;
     }
-}
+}}
 
 
 //function to show slots fetched from API to input box
