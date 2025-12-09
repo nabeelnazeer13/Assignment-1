@@ -210,6 +210,7 @@ function validate_participant_input() {
 //function to validate input and create object to send to backend for reservation
 function validate_booking_input() {
 
+//variables to find DOM elements
 const name_booking = document.querySelector('#booking-name-input');
 const name_booking_error = document.querySelector('#booking-error-name');
 
@@ -227,8 +228,28 @@ phone_booking.classList.remove('booking-input-invalid');
 email_booking.classList.remove('booking-input-invalid');
 time_booking.classList.remove('booking-input-invalid');
 
-let valid = true;
 
+name_booking.addEventListener('input', () => {
+    name_booking.classList.remove('booking-input-invalid');
+    name_booking_error.textContent = "";
+});         
+phone_booking.addEventListener('input', () => {
+    phone_booking.classList.remove('booking-input-invalid');
+    phone_booking_error.textContent = "";
+});
+
+email_booking.addEventListener('input', () => {
+    email_booking.classList.remove('booking-input-invalid');
+    email_booking_error.textContent = "";
+} );
+
+time_booking.addEventListener('input', () => {
+    time_booking.classList.remove('booking-input-invalid');
+    time_booking_error.textContent = "";
+});
+
+let valid = true;
+//alerts replaces with text content error messages
     if (!name_booking.value.trim()) {
     name_booking_error.textContent = "Please enter your name.";
     name_booking.classList.add('booking-input-invalid');
