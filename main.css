@@ -831,6 +831,10 @@
   list-style: none;
 }
 
+.contact-test {
+  color: red;
+}
+
 html, body {
   font-family: "Roboto";
   font-size: 16px;
