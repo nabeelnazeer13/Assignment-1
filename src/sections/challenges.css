@@ -27,22 +27,30 @@
 }
 .challenges__list {
   padding: 0 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
   max-width: 100%;
   overflow-x: scroll;
 }
 .challenges__listItem {
   list-style-type: none;
 }
-.challenges__buttons {
+.challenges__list .challenges__listItem {
+  transition: box-shadow 0.3s ease;
+}
+.challenges__list .challenges__listItem:hover .challenge {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+.challenges__list__buttons {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   margin: 2rem 0;
 }
 @media screen and (min-width: 700px) {
-  .challenges__buttons {
+  .challenges__list {
     flex-direction: row-reverse;
   }
 }
@@ -50,7 +58,7 @@
   background-color: #8ACFE5;
   border-radius: 0.4rem;
   border-width: 0;
-  color: #011827;
+  color: #021928;
   font-size: 1.6rem;
   font-weight: bold;
   padding: 0.8em 2.4em;
@@ -75,51 +83,87 @@
 
 .challenge {
   background-color: white;
-  border-radius: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: 1rem;
-  max-width: 26rem;
+  max-width: 28rem;
   min-width: 24rem;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 .challenge__title {
-  font-weight: normal;
-  font-size: 1.8rem;
-  margin: 1rem 1rem 0.5rem;
-  width: 100%;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-left: 0.4rem;
 }
 .challenge__subtitle {
   align-items: center;
-  display: flex;
   gap: 1rem;
-  margin: 0 1rem;
+  margin: 1rem;
+}
+.challenge__size {
+  margin-left: 0.4rem;
+}
+.challenge__imageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 .challenge__rating {
-  display: flex;
   gap: 0.5rem;
-  padding: 0;
+  position: relative;
+  margin-top: -2rem;
 }
 .challenge__details {
   padding: 0 10px;
-  display: flex;
   justify-content: space-between;
 }
 .challenge__rating {
-  display: flex;
   gap: 4px;
   color: #E3170A;
 }
+.challenge__icon {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0.2rem;
+  padding: 0.3rem 0.6rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  z-index: 1;
+  font-size: 30px;
+}
+.challenge__icon svg {
+  margin-top: 0.3rem;
+  height: 40px;
+  width: 40px;
+}
 .challenge__size {
-  font-size: 1rem;
-  padding-top: 3px;
+  font-size: 0.9rem;
 }
 .challenge__description {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   margin: 1rem 1rem;
 }
+.challenge__buttonWrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+}
+.challenge__labels {
+  margin: 1rem 1rem;
+  flex: 0 0 auto;
+}
 .challenge__bookbutton {
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  cursor: pointer;
   background-color: #E3170A;
   border-radius: 0.4rem;
   border-width: 0;
@@ -128,7 +172,27 @@
   font-weight: bold;
   padding: 0.8em 2.4em;
   text-decoration: none;
-  align-self: flex-end;
-  font-size: 1.2rem;
-  margin: 0 1rem 1rem;
+  max-width: 20rem;
+  width: auto;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.booking-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+.booking-modal.is-visible {
+  display: block;
+}
+.booking-modal .booking-step {
+  background: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  max-width: 500px;
+  border-radius: 0.5rem;
+  position: relative;
 }/*# sourceMappingURL=challenges.css.map */

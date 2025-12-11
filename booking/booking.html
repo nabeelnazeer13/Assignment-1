@@ -12,6 +12,11 @@
   <div class="booking-overlay"></div>
 
   <div id="booking-modal" class="booking-modal">
+    <div class="booking-window">
+      <button type="button" class="booking-close-btn" id="booking-close-btn">&#10006;</button>
+    
+
+
     <section class="booking-step booking-step-active " id="booking-step-1">
       <h1 class="booking-title">
         Book room "<span id="booking-room-title-step1"></span>"
@@ -35,6 +40,8 @@
     </section>
 
     <section class="booking-step " id="booking-step-2">
+
+
       <h1 class="booking-title">
         Book room "<span id="booking-room-title-step2"></span>"
         (step 2)
@@ -44,17 +51,20 @@
         <label class="booking-label">
           Name
           <input type="text" class="booking-input" id="booking-name-input" name="name" />
+          <p class="booking-error" id="booking-error-name"></p>
         </label>
 
 
         <label class="booking-label">
           Phone number
-          <input type="phone" class="booking-input" id="booking-phone-input" name="phone" />
+          <input type="tel" class="booking-input" id="booking-phone-input" name="phone" />
+          <p class="booking-error" id="booking-error-phone"></p>
         </label>
 
         <label class="booking-label">
           E-mail
           <input type="email" class="booking-input" id="booking-email-input" name="email" />
+          <p class="booking-error" id="booking-error-email"></p>
         </label>
       </div>
 
@@ -62,17 +72,25 @@
         <label class="booking-label booking-label-half">
           What time?
           <select class="booking-input" id="booking-time-select" name="time">
-
           </select>
+            <p class="booking-error" id="booking-error-time"></p>
         </label>
 
-        <label class="booking-label booking-label-half">
-          How many participants?
-          <select class="booking-input" id="booking-participants-select" name="participants">
+       
 
-          </select>
-        </label>
-      </div>
+          <label class="booking-label booking-label-half" id="booking-label-participants"></label>
+            
+            <!--<select
+              class="booking-input"
+              id="booking-participants-select"
+              name="participants"
+            >
+              
+            </select>
+          </label>
+        </div> -->
+        <input type="number" class="booking-input" id="booking-input-participants" step="1">
+        <p class="booking-error" id="booking-error-participants"></p>
 
       <div class="booking-buttons booking-buttons-between">
         <button type="button" class="booking-btn booking-btn-secondary" id="booking-step2-back">
@@ -99,6 +117,7 @@
         Back to challenges
       </button>
     </section>
+    </div>
   </div>
 
   <script src="/booking/booking.js"></script>

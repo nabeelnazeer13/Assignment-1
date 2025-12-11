@@ -17,7 +17,7 @@
   }
 }
 .header {
-  background-color: #011827;
+  background-color: #021928;
 }
 @media screen and (min-width: 700px) {
   .header {
@@ -25,7 +25,6 @@
   }
 }
 .header__main {
-  padding-left: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -83,7 +82,7 @@
   }
 }
 .header__mainmobilenavmenu {
-  background-color: #011827;
+  background-color: #021928;
   color: #fff;
   font-size: 3rem;
   padding-left: 50px;
@@ -101,7 +100,7 @@
   display: none;
 }
 .header__navcontainernav {
-  background-color: #011827;
+  background-color: #021928;
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -113,6 +112,11 @@
   animation: navfadeandscale 0.35s cubic-bezier(0.53, 0.52, 0.04, 1.06) 0s 1 both;
   justify-content: center;
   flex-direction: column;
+}
+.header__navcontainernav a:hover {
+  background-color: #011827;
+  color: #36769D;
+  transition: 0.3s ease;
 }
 @media screen and (min-width: 700px) {
   .header__navcontainernav {
@@ -147,9 +151,12 @@
     font-weight: 500;
     letter-spacing: 0.04em;
     text-decoration: none;
-  }
-  .header__navcontainernav ul li a:hover, .header__navcontainernav ul li a:focus {
-    color: #36769D;
+    /*     &:hover,
+         &:focus {
+             background-color: transparent;
+             color: $esc-darkblue;
+
+         }*/
   }
 }
 .header__navcontainernavclose {
@@ -157,7 +164,7 @@
   top: 1rem;
   right: 1rem;
   font-size: 2rem;
-  background-color: #011827;
+  background-color: #021928;
   border: 0;
   color: #fff;
 }

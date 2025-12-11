@@ -99,7 +99,7 @@ ratingStarsMax.forEach((star, index) => {
 
 
     filterUserInput.addEventListener("input", (e) => {
-        filterState.search = e.target.value.toLowerCase();
+        filterState.search = e.target.value.toLowerCase().trim(); //Added trim to prevent whitespace-triggered search
         applyFilters();
 
     });
@@ -126,40 +126,40 @@ ratingStarsMax.forEach((star, index) => {
 
     //update filter UI with filter state
     function updateUIWithState() {
-    
-    onlineCheckbox.checked = filterState.online;
-    onsiteCheckbox.checked = filterState.onSite;
 
-     ratingStarsMin.forEach((star, index) => {
-        const selected = filterState.minRating;
-        const threshold = ratingStarsMin.length - selected;
-        star.classList.toggle("checked", index >= threshold); 
-    });
+        onlineCheckbox.checked = filterState.online;
+        onsiteCheckbox.checked = filterState.onSite;
 
-   
-    ratingStarsMax.forEach((star, index) => {
-        const selected = filterState.maxRating;
-        const threshold = ratingStarsMax.length - selected;
-        star.classList.toggle("checked", index >= threshold);
-    });
+        ratingStarsMin.forEach((star, index) => {
+            const selected = filterState.minRating;
+            const threshold = ratingStarsMin.length - selected;
+            star.classList.toggle("checked", index >= threshold);
+        });
 
-    tagElement.forEach(tag => {
-        const value = tag.textContent.trim().toLowerCase();
-        tag.classList.toggle("checked", filterState.tags.includes(value));
-    });
 
-    filterUserInput.value = filterState.search;
-   
-}
+        ratingStarsMax.forEach((star, index) => {
+            const selected = filterState.maxRating;
+            const threshold = ratingStarsMax.length - selected;
+            star.classList.toggle("checked", index >= threshold);
+        });
 
-//apply filters to challenges
+        tagElement.forEach(tag => {
+            const value = tag.textContent.trim().toLowerCase();
+            tag.classList.toggle("checked", filterState.tags.includes(value));
+        });
+
+        filterUserInput.value = filterState.search;
+
+    }
+
+    //apply filters to challenges
     function applyFilters() {
         let filtered = allChallengesData;
-
-        if (filterState.search.trim() !== "") {
+        // Updated search filter to only search if longer than three charachters 
+        if (filterState.search.length >= 3) {
             filtered = filtered.filter(challenge => {
                 const title = challenge.title.toLowerCase();
-                const description = challenge.description.toLowerCase(); 
+                const description = challenge.description.toLowerCase();
 
                 return (title.includes(filterState.search)) ||
                     description.includes(filterState.search);
@@ -204,7 +204,7 @@ ratingStarsMax.forEach((star, index) => {
     }
 
 };
-    
+
 //Gör initializeFilters tillgänglig globalt så att main.js kommer åt denna
 window.initializeFilters = initializeFilters;
 

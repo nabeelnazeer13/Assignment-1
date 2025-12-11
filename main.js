@@ -131,9 +131,12 @@ async function initMain() {
 
 const listElAll = document.querySelector('#all-list');
 const statusElAll = document.querySelector('#all-status');
+const loadingAnimation = document.querySelector('.loading');
 
 async function initAll() {
     try {
+        
+        loadingAnimation.classList.remove('hidden');
         statusElAll.textContent = 'Loading challenges...';
 
         const all = await getChallenges();
@@ -145,9 +148,10 @@ async function initAll() {
             listElAll.appendChild(createChallengeLi(ch));
         });
 
-
+        loadingAnimation.classList.add('hidden');
         statusElAll.textContent = '';
     } catch (e) {
+        loadingAnimation.classList.add('hidden');
         statusElAll.textContent = 'Could not load data: ' + e.message;
         console.error(e);
     }
@@ -240,9 +244,8 @@ async function loadBookingModal(challenge) {
         alert('Could not open booking modal, try again later!');
 }
 }
-/*CLOSE MODAL
+/*
 modal.querySelector('.booking-overlay').addEventListener('click', () => modal.remove());
-const closeBtn = modal.querySelector('#booking-close');
+const closeBtn = modal.querySelector('#booking-close-btn');
 if(closeBtn) closeBtn.addEventListener('click', () => modal.remove());
-}
 */
