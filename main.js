@@ -1,3 +1,4 @@
+import { truncateDescription } from "./truncateDescription.js";
 const mobilemenu = document.querySelector('.header__mainmobilenavmenu');
 const navmenu = document.querySelector('.header__navcontainer')
 const closemenu = document.querySelector('.header__navcontainernavclose')
@@ -35,8 +36,6 @@ export async function getChallenges() {
     }
 };
 
-
-
 //function to create list challenges
 export function createChallengeLi(ch) {
     const {
@@ -60,13 +59,12 @@ export function createChallengeLi(ch) {
     //Creates a li-element to hold a challenge and assigns a CSS class for styling the list
     const li = document.createElement('li');
     li.className = 'challenges__listItem';
-    
+
     //Fill the <li>-element with the HTML structure for a challenge
     li.innerHTML = `
     <article class="challenge">
      <div class="challenge__imageWrapper">
       <img src="${image}" alt="${title}" class="challenge__image">
-
 
       <div class="challenge__details">
         <div class="challenge__rating" role="img" aria-label="${rating} of 5 stars">
@@ -87,10 +85,11 @@ export function createChallengeLi(ch) {
             <span class="challenge__icon"> <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="94px" height="94px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#231F20" d="M62.79,29.172l-28-28C34.009,0.391,32.985,0,31.962,0s-2.047,0.391-2.828,1.172l-28,28 c-1.562,1.566-1.484,4.016,0.078,5.578c1.566,1.57,3.855,1.801,5.422,0.234L8,33.617V60c0,2.211,1.789,4,4,4h16V48h8v16h16 c2.211,0,4-1.789,4-4V33.695l1.195,1.195c1.562,1.562,3.949,1.422,5.516-0.141C64.274,33.188,64.356,30.734,62.79,29.172z"></path> </g></svg> `: ""}</span>
       </div>
 
-      <p class="challenge__description">${description}</p>
-
+        <p class="challenge__description">${truncateDescription(description)}</p>
+        
 <!--Checks if there are any labels in the labels array. Yes= show tags. No= no output -->
-      ${labels.length ? `<div class="challenge__labels">${labels.map(l => `<span class="tags">#${l}</span>`).join(' ')}</div>` : ''}
+      
+        ${labels.length ? `<div class="challenge__labels">${labels.map(l => `<span class="tags">#${l}</span>`).join(' ')}</div>` : ''}
         
       <div class="challenge__buttonWrapper">
       <button class="challenge__bookbutton button--red">
@@ -135,7 +134,7 @@ const loadingAnimation = document.querySelector('.loading');
 
 async function initAll() {
     try {
-        
+
         loadingAnimation.classList.remove('hidden');
         statusElAll.textContent = 'Loading challenges...';
 
@@ -163,6 +162,7 @@ if (listElMain && statusElMain) {
 if (listElAll && statusElAll) {
     initAll();
 }
+
 
 //FILTER function to load in the HTML from filter.html
 async function loadFilterChallenges() {
@@ -209,7 +209,7 @@ async function loadFilterChallenges() {
     } catch (err) {
         console.error('loadFilterChallenges error', err);
         const statusElAll = document.querySelector('#all-status');
-    if (statusElAll) statusElAll.textContent = ' I am sorry, could not load the filter : ' + err.message;
+        if (statusElAll) statusElAll.textContent = ' I am sorry, could not load the filter : ' + err.message;
     }
 }
 
@@ -243,12 +243,12 @@ async function loadBookingModal(challenge) {
         });
         
         initialiseBookingModal(challenge);
-        
+
     } catch (err) {
         console.error(loadBookingModal, err);
         const statusElAll = document.querySelector('#all-status');
         alert('Could not open booking modal, try again later!');
-}
+    }
 }
 /*
 modal.querySelector('.booking-overlay').addEventListener('click', () => modal.remove());

@@ -662,7 +662,7 @@
   align-items: center;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid #eee;
-  margin-bottom: 0.8rem;
+  margin: 0.8rem 0.8rem;
 }
 @media screen and (min-width: 700px) {
   .filters {
@@ -687,8 +687,8 @@
 }
 .filters__close {
   position: absolute;
-  top: 0.1rem;
-  right: 0.2rem;
+  top: 0.8rem;
+  right: 0.8rem;
   font-size: 1.6rem;
   padding: 0.3rem;
   border: 0;
@@ -709,6 +709,10 @@
 .filter__title {
   font-size: 1rem;
   margin-bottom: 0.8rem;
+}
+
+.filter:last-child {
+  margin-bottom: 0;
 }
 
 .type__option {
@@ -783,7 +787,7 @@
 
 .search-bar input {
   width: 18rem;
-  padding: 1.2rem;
+  padding: 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;

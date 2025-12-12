@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "author": "Nabeel",
-  "type": "commonjs",
+    "type":"module",
   "main": "main.js",
   "directories": {
     "lib": "lib"
@@ -20,9 +20,15 @@
   "scripts": {
     "sass:build": "sass src/main.scss main.css",
     "sass:watch": "sass --watch src/main.scss main.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+       
   },
+
   "devDependencies": {
+    "jest": "^29.7.0",
     "sass": "^1.94.2"
   }
+  
 }
+
+

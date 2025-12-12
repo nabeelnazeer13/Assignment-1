@@ -1,4 +1,4 @@
 node_modules/
 main.css
-main.css.map
-.hintrc
+*.map
+.hintrc 
