@@ -10,6 +10,10 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   z-index: 1000;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1600ms ease;
 }
 
 .booking-modal {
@@ -20,7 +24,23 @@
   place-items: center;      /* centrerar både horisontellt och vertikalt */
   padding: 16px;
   box-sizing: border-box;
-  z-index: 1010;
+
+
+  opacity: 0;
+  transform: translateY(-20px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 1600ms ease, transform 1600ms ease;
+}
+
+.booking-overlay.is-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.booking-modal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
 }
 
 .booking-window{

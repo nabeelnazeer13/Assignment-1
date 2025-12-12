@@ -73,16 +73,30 @@ function initializeFilters() {
 });
 
 //event listeners for each filter type
+//Updated functions for min/max-rating to prevent min being larger than max and vice versa
  ratingStarsMin.forEach((star, index) => {
     star.addEventListener("click", () => {
-        filterState.minRating = ratingStarsMin.length - index;
+        const newMin = ratingStarsMin.length - index;
+
+        if(newMin > filterState.maxRating){
+            return; //if ratingStarsMin is bigger than maxRating, do nothing
+        }
+
+        filterState.minRating = newMin;
         applyFilters();
     });
 });
 
+//Same change as above but to prevent maxrating from being smaller than minrating
 ratingStarsMax.forEach((star, index) => {
     star.addEventListener("click", () => {
-        filterState.maxRating = ratingStarsMax.length - index;
+        const newMax = ratingStarsMax.length - index;
+
+        if(newMax < filterState.minRating){
+            return; //if maxrating is smaller than minrating, do nothing
+        }
+
+        filterState.maxRating = newMax;
         applyFilters();
     });
 });

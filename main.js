@@ -234,8 +234,14 @@ async function loadBookingModal(challenge) {
 
         if (overlay) document.body.appendChild(overlay);
         if (modal) document.body.appendChild(modal); // lägg till i all.html
+
+        requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
         overlay?.classList.add('is-visible');
         modal?.classList.add('is-visible');
+          });
+        });
+        
         initialiseBookingModal(challenge);
 
     } catch (err) {
