@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "author": "Nabeel",
-    "type":"module",
+  "type": "module",
   "main": "main.js",
   "directories": {
     "lib": "lib"
@@ -20,15 +20,11 @@
   "scripts": {
     "sass:build": "sass src/main.scss main.css",
     "sass:watch": "sass --watch src/main.scss main.css",
-     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
-       
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
-
   "devDependencies": {
+    "cypress": "^15.11.0",
     "jest": "^29.7.0",
     "sass": "^1.94.2"
   }
-  
 }
-
-
